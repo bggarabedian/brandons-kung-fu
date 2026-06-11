@@ -1,6 +1,6 @@
 # Brandon's Kung Fu — Skills and Routing
 
-> **Status:** private scaffold. Generic routing guidance only — no third-party
+> **Status:** v0.1. Generic routing guidance only — no third-party
 > skill bodies, no proprietary names. Skills are named here, never copied.
 
 This file explains how the conductor routes to skills. The catalog itself lives in

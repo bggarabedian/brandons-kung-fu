@@ -1,6 +1,6 @@
 # Brandon's Kung Fu — Safety and Scrub Rules
 
-> **Status:** private scaffold. Generic safety rules only — no proprietary app
+> **Status:** v0.1. Generic safety rules only — no proprietary app
 > names, no legal-product doctrine, no private paths, no raw memories, and no
 > third-party skill bodies.
 

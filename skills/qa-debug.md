@@ -1,6 +1,6 @@
 # Brandon's Kung Fu — QA and Debug Patterns
 
-> **Status:** private scaffold. Generic engineering patterns only — no
+> **Status:** v0.1. Generic engineering patterns only — no
 > proprietary product, legal, business, or private-repo context, and no
 > third-party skill body is copied here. Skills are *referenced* by name only.
 

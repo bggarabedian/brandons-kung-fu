@@ -1,6 +1,6 @@
 # Brandon's Kung Fu — Security and Release-Safety Patterns
 
-> **Status:** private scaffold. Generic security patterns only — no proprietary
+> **Status:** v0.1. Generic security patterns only — no proprietary
 > names, no legal-product doctrine, no third-party skill bodies. Skills are
 > referenced by name only.
 

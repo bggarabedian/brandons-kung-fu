@@ -1,6 +1,6 @@
 # Brandon's Kung Fu — ChatGPT Project Files
 
-> **Status:** private scaffold. These are generic project-conductor files you
+> **Status:** v0.1. These are generic project-conductor files you
 > upload by hand into an LLM project (ChatGPT, Claude, or similar). They carry
 > no proprietary application names, no business goals, no private paths, no raw
 > memories, and no third-party skill bodies.
@@ -44,8 +44,10 @@ Together they teach the LLM project to:
 - `06-skills-and-routing.md` — generic skill catalog and routing.
 - `08-daily-workflow.md` — generic start / work / close session discipline.
 - `09-codex-and-agent-tooling.md` — optional Codex CLI / multi-agent guidance.
+- `10-learn-and-update-loop.md` — the learn loop and tool-freshness checks.
+- `PROJECT-INSTRUCTIONS.md` — copy-ready block for your LLM project's custom instructions.
 
-> Present today: `00`–`09` — all present.
+> Present today: `00`–`10` plus `PROJECT-INSTRUCTIONS.md` — all present.
 
 ## Upload order
 
@@ -66,6 +68,10 @@ Upload the spine first, then core, then advanced only when the work needs it.
 - `06-skills-and-routing.md`
 - `08-daily-workflow.md`
 - `09-codex-and-agent-tooling.md`
+- `10-learn-and-update-loop.md`
+
+> Tip: `PROJECT-INSTRUCTIONS.md` is **pasted into your project's custom
+> instructions**, not uploaded as a file.
 
 Every uploaded file is always-on context. Keep the set small; add advanced files
 only while that kind of work is active, and remove them when it is not.

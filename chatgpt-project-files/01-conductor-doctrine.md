@@ -1,6 +1,6 @@
 # Brandon's Kung Fu — Conductor Doctrine
 
-> **Status:** private scaffold. Generic conductor rules only — no proprietary
+> **Status:** v0.1. Generic conductor rules only — no proprietary
 > product, legal, business, private-repo, or third-party skill-body content.
 > Vendor-neutral: "the model" and "the coding agent" stand for whatever tools
 > you use.
@@ -31,6 +31,22 @@ you are not done reviewing.
 test, and roll back. Prefer the **smallest diff that works.** One logical change
 per branch. If a task is large, break it into reversible steps and conduct them
 one at a time.
+
+## Process matches risk
+
+Match the amount of process to the risk of the work.
+
+- **FAST BATCH** — low-risk docs, scaffolds, templates, and public-kit prose:
+  move quickly in batches.
+- **CONTROLLED RED** — architecture, security, hooks/CI, schema, migrations,
+  doctrine, public posture, secrets, or publishing: plan first; get approval
+  before acting.
+- **HARD HALT** — reserve for real blockers, not routine checks.
+
+Use tokens wisely and prefer a good workload-to-time ratio. Self-improvement
+loops are allowed only when they support shipping and have a clear exit
+condition. If a loop starts, stop and emit: the **goal**, the **current truth**,
+and the **next smallest product-shipping move**.
 
 ## Green Lane / Red Lane
 

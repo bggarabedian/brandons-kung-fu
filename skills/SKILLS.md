@@ -1,6 +1,6 @@
 # Brandon's Kung Fu — Skill Manifest
 
-> **Status:** private scaffold. This is a **manifest, not a skill library.**
+> **Status:** v0.1. This is a **manifest, not a skill library.**
 > It names skills and describes them generically. It contains **no third-party
 > skill body**. A skill moves from "referenced" to "bundled" only after a
 > per-skill scrub + license audit.
@@ -55,11 +55,12 @@ Generic session and review discipline. Bundled: none yet.
 | `/architect-review` | `3P` / unresolved | reference-only until provenance audit |
 | `/security-review` | `3P` / unresolved | reference-only until provenance audit |
 | `/context-engineering` | `MISMATCH` / `3P` | resolve real registry name before linking |
-| `/learn` | command/pattern | not a bundled skill yet |
+| `/learn` | command/pattern | captures verified reusable lessons; no silent installs |
 | `/standup` | command/pattern | not a bundled skill yet |
 | `/standdown` | command/pattern | not a bundled skill yet |
 | `/dream` | command/pattern | not a bundled skill yet |
 | `/cli-anything` | `AUTHOR-NEW` | prose pattern — turns repeatable workflows into small typed CLI tools (no body yet) |
+| `/update-check` | `AUTHOR-NEW` | prose pattern — reports tool/repo/model/docs freshness; no silent installs |
 
 ### B. RAG / CAG / AI app engineering
 

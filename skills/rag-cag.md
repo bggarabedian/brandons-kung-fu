@@ -1,6 +1,6 @@
 # Brandon's Kung Fu — RAG/CAG Patterns
 
-> **Status:** private scaffold. Generic, domain-neutral engineering patterns
+> **Status:** v0.1. Generic, domain-neutral engineering patterns
 > only — no proprietary corpus, product, legal, or business context, and no
 > third-party skill body is copied here. Skills are *referenced* by name; their
 > implementations live in their own upstream packs.

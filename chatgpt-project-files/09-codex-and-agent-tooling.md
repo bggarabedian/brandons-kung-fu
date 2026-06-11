@@ -1,6 +1,6 @@
 # Brandon's Kung Fu — Codex CLI and Agent Tooling (Project File)
 
-> **Status:** private scaffold. Generic project-file guidance only — no
+> **Status:** v0.1. Generic project-file guidance only — no
 > proprietary names, no third-party skill bodies. Tool names below name the tools
 > the guidance is about.
 
