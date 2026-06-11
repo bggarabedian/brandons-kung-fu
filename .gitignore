@@ -1,0 +1,23 @@
+# Local / secret files
+*.local.*
+denylist.local.txt
+.env
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Runtime
+ledger/
+
+# OS
+.DS_Store

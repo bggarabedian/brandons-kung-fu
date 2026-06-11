@@ -1,0 +1,30 @@
+# brandons-kung-fu — OPTIONAL vendor / AI-tool denylist (OPT-IN, DISABLED BY DEFAULT).
+#
+# This list is NOT scanned unless BOTH of these are true:
+#   1. You set the environment variable when pushing:   BKF_SCAN_VENDORS=1
+#   2. You uncomment the term(s) below (remove the leading "# ").
+#
+# Purpose: only for users who want to keep tracked files vendor-neutral (e.g.,
+# strip AI-tool branding from authored content). Most users can ignore this file
+# entirely and leave every line commented out.
+#
+# Every line below is a DISABLED example. Uncomment only what you actually want
+# to block. Each active line is matched as a literal string.
+#
+# Disabled examples:
+# Claude
+# Anthropic
+# OpenAI
+# Codex
+# GPT
+# Gemini
+# Google
+# Sonnet
+# Opus
+# Mistral
+# Llama
+# DeepSeek
+# Qwen
+# Cursor
+# Copilot
+# Aider

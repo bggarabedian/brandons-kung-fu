@@ -1,0 +1,20 @@
+# brandons-kung-fu — EXAMPLE denylist (INERT).
+#
+# This file ships with placeholder tokens only. They never match real content,
+# so the pre-push hook passes out of the box.
+#
+# To use it for real:
+#   1. cp denylist.example.txt denylist.local.txt   (denylist.local.txt is gitignored)
+#   2. Replace each placeholder below with your own real protected term.
+#   3. One literal term per line. No trailing spaces.
+#   4. Lines starting with '#' and blank lines are ignored.
+#
+# Never put real protected terms in THIS file — it is committed. Put them only
+# in denylist.local.txt.
+
+__OPERATOR_SURNAME__
+__COMPANY_NAME__
+__PRODUCT_NAME__
+__PRODUCT_CODENAME__
+__PRIVATE_REMOTE_HOST__
+__PRIVATE_PROJECT_PATH_FRAGMENT__
