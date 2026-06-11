@@ -32,7 +32,7 @@ This is an early **private, local scaffold**. Present so far:
   release-safety patterns.
 - **ChatGPT Project Files** — `chatgpt-project-files/`: index README, conductor
   doctrine, coding standards, driving coding agents, skills & routing, safety &
-  scrub, RAG/CAG, QA & debug, and daily workflow.
+  scrub, RAG/CAG, QA & debug, daily workflow, and Codex & agent tooling.
 - **License** — `LICENSE` (MIT).
 
 ## What is planned next

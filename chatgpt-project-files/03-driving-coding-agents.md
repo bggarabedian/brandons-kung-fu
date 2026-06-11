@@ -112,3 +112,4 @@ A clear stuck-note turns a dead end into a decision the human can make fast.
 - `01-conductor-doctrine.md` — the conductor role, lanes, and HALT behavior.
 - `02-coding-standards.md` — the quality bar agent output is judged against.
 - `07-safety-and-scrub.md` — the public-operation and scrub boundaries.
+- `09-codex-and-agent-tooling.md` — using Codex CLI and coordinating multiple agents.

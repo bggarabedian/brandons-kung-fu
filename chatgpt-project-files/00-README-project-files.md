@@ -43,8 +43,9 @@ Together they teach the LLM project to:
 - `05-qa-and-debug.md` — generic QA, verification, and debugging patterns.
 - `06-skills-and-routing.md` — generic skill catalog and routing.
 - `08-daily-workflow.md` — generic start / work / close session discipline.
+- `09-codex-and-agent-tooling.md` — optional Codex CLI / multi-agent guidance.
 
-> Present today: `00`, `01`, `02`, `03`, `04`, `05`, `06`, `07`, `08` — all present.
+> Present today: `00`–`09` — all present.
 
 ## Upload order
 
@@ -64,6 +65,7 @@ Upload the spine first, then core, then advanced only when the work needs it.
 - `05-qa-and-debug.md`
 - `06-skills-and-routing.md`
 - `08-daily-workflow.md`
+- `09-codex-and-agent-tooling.md`
 
 Every uploaded file is always-on context. Keep the set small; add advanced files
 only while that kind of work is active, and remove them when it is not.
