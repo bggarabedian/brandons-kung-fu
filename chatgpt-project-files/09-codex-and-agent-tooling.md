@@ -57,13 +57,16 @@ do not assume them.
 
 ## Model and tool selection
 
-- **Do not hard-code model assumptions.** Which models exist depends on the
-  current Codex version, configuration, and account.
-- **Pick cheaper/faster models for boilerplate** and mechanical work.
-- **Pick a stronger reasoning or review mode** for architecture, debugging,
-  security, public-release decisions, or high-risk refactors.
-- Choose by fit and cost for the task, and re-check what is available rather than
-  trusting a remembered list.
+- **Use the best available model or tool when it improves total speed, quality,
+  reasoning, review, or safety.** For serious engineering, default to
+  **frontier / high-capability models**.
+- **Do not artificially downshift** from a high-capability model for real
+  engineering work. Bad cheap output is expensive when it causes rework.
+- **Faster/cheaper models are an optional optimization** for boilerplate and
+  low-risk repetition — allowed, never a mandatory default.
+- **Do not hard-code model names.** Available options depend on the current tool
+  version, configuration, and account — verify them from your tool's output or
+  official docs.
 
 ## Safety rules (same as the rest of the kit)
 

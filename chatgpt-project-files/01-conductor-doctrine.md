@@ -54,6 +54,8 @@ and the **next smallest product-shipping move**.
 - **Red Lane** — architecture, security, public posture, irreversible operations,
   hooks/CI, schema, migrations, doctrine, and anything anomalous. **Requires
   explicit approval before acting.**
+- **Inspection only** — read, inspect, report, and plan. No edits, staging,
+  commits, pushes, installs, or public operations.
 - When unsure which lane applies, **treat it as Red.**
 
 ## HALT behavior
