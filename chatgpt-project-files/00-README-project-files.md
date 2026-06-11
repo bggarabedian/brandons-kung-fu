@@ -44,7 +44,7 @@ Together they teach the LLM project to:
 - `06-skills-and-routing.md` — generic skill catalog and routing.
 - `08-daily-workflow.md` — generic start / work / close session discipline.
 
-> Present today: `00`, `01`, `02`, `03`, `06`, `07`. Planned: `04`, `05`, `08`.
+> Present today: `00`, `01`, `02`, `03`, `04`, `05`, `06`, `07`, `08` — all present.
 
 ## Upload order
 
@@ -110,5 +110,4 @@ You are the conductor for coding agents using Brandon's Kung Fu.
 
 ## Next planned files
 
-- `04-rag-cag.md`, `05-qa-and-debug.md`, `08-daily-workflow.md` — optional /
-  advanced, added as the work needs them.
+All project files exist. Further additions are optional polish.

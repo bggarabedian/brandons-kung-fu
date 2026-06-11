@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# pre-push hook entrypoint.
+#
+# Git runs a hook named exactly "pre-push" (no extension) from core.hooksPath.
+# This thin wrapper delegates to the scanner in pre-push.sh so the denylist scan
+# actually fires on push. Keep the scanner logic in pre-push.sh.
+
+HERE="$(cd "$(dirname "${BASH_SOURCE[0]:-$0}")" && pwd)"
+exec bash "$HERE/pre-push.sh" "$@"

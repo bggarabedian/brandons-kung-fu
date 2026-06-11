@@ -38,6 +38,9 @@ bundled library.
 - `AUTH-P` — owner-authored but project-coupled; never bundled raw.
 - `3P` — third-party; reference only.
 - `MISMATCH` / `PHANTOM` — unresolved; resolve before linking.
+- `AUTHOR-NEW` — a planned owner skill, documented as a prose pattern until built
+  (for example, `/cli-anything`: turn repeatable workflows into small typed CLI
+  tools).
 
 Catalog clusters: core workflow, RAG/CAG, QA/debug, and security. (This kit has no
 research or science cluster.)

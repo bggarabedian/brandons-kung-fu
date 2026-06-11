@@ -31,14 +31,14 @@ This is an early **private, local scaffold**. Present so far:
 - **Security cluster** — `skills/security.md`: generic security and
   release-safety patterns.
 - **ChatGPT Project Files** — `chatgpt-project-files/`: index README, conductor
-  doctrine, coding standards, driving coding agents, skills & routing, and
-  safety & scrub.
+  doctrine, coding standards, driving coding agents, skills & routing, safety &
+  scrub, RAG/CAG, QA & debug, and daily workflow.
 - **License** — `LICENSE` (MIT).
 
 ## What is planned next
 
-- The optional/advanced ChatGPT Project Files: `04-rag-cag.md`,
-  `05-qa-and-debug.md`, and `08-daily-workflow.md`.
+All planned v0.1 files exist. Further additions (more cluster docs, an authored
+skill once audited) are optional polish.
 
 ## Safety model
 

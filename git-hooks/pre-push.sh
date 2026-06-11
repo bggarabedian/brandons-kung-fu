@@ -81,6 +81,7 @@ fi
 FILE_LIST="$(bkf_mktemp)"
 git -C "$REPO_ROOT" ls-files -z -- \
     ':(exclude)git-hooks/pre-push.sh' \
+    ':(exclude)git-hooks/pre-push' \
     ':(exclude)git-hooks/denylist.local.txt' \
     ':(exclude)git-hooks/denylist.example.txt' \
     ':(exclude)git-hooks/denylist.vendors.txt' \

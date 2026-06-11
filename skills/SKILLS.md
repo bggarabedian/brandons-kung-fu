@@ -31,6 +31,7 @@
 | `3P` | Third-party. **Reference only** (name + source note). Never copy the body. |
 | `PHANTOM` | Requested name not found in the registry. Document as a prose pattern, or author a new generic skill, or drop. |
 | `MISMATCH` | Requested name differs from the actual registry name. Resolve the real name before linking. |
+| `AUTHOR-NEW` | A planned, owner-authored generic skill — documented as a prose pattern until built; never a third-party body. |
 
 ## Kit-action vocabulary
 
@@ -58,6 +59,7 @@ Generic session and review discipline. Bundled: none yet.
 | `/standup` | command/pattern | not a bundled skill yet |
 | `/standdown` | command/pattern | not a bundled skill yet |
 | `/dream` | command/pattern | not a bundled skill yet |
+| `/cli-anything` | `AUTHOR-NEW` | prose pattern — turns repeatable workflows into small typed CLI tools (no body yet) |
 
 ### B. RAG / CAG / AI app engineering
 
