@@ -188,7 +188,7 @@ Referenced by name only. No third-party body is included here.
 
 ---
 
-## Next planned cluster files
+## Related cluster files
 
 - `skills/qa-debug.md` — QA / testing / debugging cluster.
 - `skills/security.md` — security / release-safety cluster.
