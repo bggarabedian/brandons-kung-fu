@@ -55,10 +55,10 @@ Generic session and review discipline. Bundled: none yet.
 | `/architect-review` | `3P` / unresolved | reference-only until provenance audit |
 | `/security-review` | `3P` / unresolved | reference-only until provenance audit |
 | `/context-engineering` | `MISMATCH` / `3P` | resolve real registry name before linking |
-| `/learn` | command/pattern | captures verified reusable lessons; no silent installs |
-| `/standup` | command/pattern | not a bundled skill yet |
-| `/standdown` | command/pattern | not a bundled skill yet |
-| `/dream` | command/pattern | not a bundled skill yet |
+| `/learn` | command/pattern | captures verified reusable lessons; no silent installs — generic template in `chatgpt-project-files/11-command-templates.md` |
+| `/standup` | command/pattern | not a bundled skill yet — generic template in `chatgpt-project-files/11-command-templates.md` |
+| `/standdown` | command/pattern | not a bundled skill yet — generic template in `chatgpt-project-files/11-command-templates.md` |
+| `/dream` | command/pattern | not a bundled skill yet — generic template in `chatgpt-project-files/11-command-templates.md` |
 | `/cli-anything` | `AUTHOR-NEW` | prose pattern — turns repeatable workflows into small typed CLI tools (no body yet) |
 | `/update-check` | `AUTHOR-NEW` | prose pattern — reports tool/repo/model/docs freshness; no silent installs |
 
