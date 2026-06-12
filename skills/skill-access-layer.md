@@ -117,10 +117,24 @@ After you install a skill locally, confirm all of:
   status shows no unexpected tracked changes.
 - **No private leakage** — its output contains no private paths or names.
 
-## Future dry-run fetcher (design only — no code here)
+## Dry-run fetcher
 
-A later PR may add an importer that reads `skills-manifest.yaml` and helps install
-skills. Its design constraints, fixed now so the build is bounded:
+A fetcher now exists at [`bin/skill-fetch.sh`](bin/skill-fetch.sh) (bash) and
+[`bin/skill-fetch.ps1`](bin/skill-fetch.ps1) (PowerShell). It reads
+`skills-manifest.yaml` and reports what it *would* install.
+
+- **Dry-run is the default.** Run it with no flags and it makes **no** network
+  calls and **no** writes — it only prints a plan and a summary.
+- **Installing requires explicit approval.** The `--apply` flag (PowerShell:
+  `-Apply`) is the only switch that enables network + install, and it **still
+  prompts per skill** — there is no non-interactive bypass.
+
+Against the current manifest (every entry `install_status: reference`,
+`license_status: pending`, empty `source_url`) the fetcher reports **zero
+eligible installs** by design — it stays inert until a future audited PR promotes
+a specific skill to installable with a cleared license and a public source.
+
+Its design constraints:
 
 - **Dry-run by default.** With no apply flag it performs **no** network calls and
   **no** installs — it only prints what it *would* fetch and install.
