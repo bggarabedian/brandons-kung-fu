@@ -40,6 +40,25 @@
 - **resolve** — fix a `MISMATCH`/`PHANTOM` before any link is published.
 - **command/pattern** — a workflow idea, not (yet) a bundled skill.
 
+## Source manifest and access layer
+
+Two companion files extend this catalog without changing its doctrine:
+
+- [`skills-manifest.yaml`](skills-manifest.yaml) — machine-readable
+  **additive metadata** (source URL, license, license status, install status)
+  keyed by skill name. It is a SEED set, not the full skill universe.
+- [`skill-access-layer.md`](skill-access-layer.md) — how to reference, audit,
+  and (later) install skills safely; provenance labels; shadowing warning;
+  installed-skill smoke test; the dry-run-fetcher design.
+
+**This file (`SKILLS.md`) stays canonical** for provenance and the
+bundle/reference/distilled doctrine. The manifest **mirrors** the provenance tag
+and adds metadata; if the two disagree, `SKILLS.md` wins — fix the manifest.
+
+A manifest row is **metadata only**. It is **not** proof that a skill body is
+bundled in this repo or installed on your machine. Bundling still requires a
+per-skill scrub + license audit; installing is a separate, user-approved action.
+
 ---
 
 ## Catalog
