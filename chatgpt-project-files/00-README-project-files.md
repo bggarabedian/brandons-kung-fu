@@ -45,9 +45,12 @@ Together they teach the LLM project to:
 - `08-daily-workflow.md` — generic start / work / close session discipline.
 - `09-codex-and-agent-tooling.md` — optional Codex CLI / multi-agent guidance.
 - `10-learn-and-update-loop.md` — the learn loop and tool-freshness checks.
+- `11-command-templates.md` — generic `/standup` `/standdown` `/learn` `/dream`
+  templates, the no-hardcoded-path rule, duplicate-command warning, and a
+  command smoke-test checklist.
 - `PROJECT-INSTRUCTIONS.md` — copy-ready block for your LLM project's custom instructions.
 
-> Present today: `00`–`10` plus `PROJECT-INSTRUCTIONS.md` — all present.
+> Present today: `00`–`11` plus `PROJECT-INSTRUCTIONS.md` — all present.
 
 ## Upload order
 
@@ -69,6 +72,7 @@ Upload the spine first, then core, then advanced only when the work needs it.
 - `08-daily-workflow.md`
 - `09-codex-and-agent-tooling.md`
 - `10-learn-and-update-loop.md`
+- `11-command-templates.md`
 
 > Tip: `PROJECT-INSTRUCTIONS.md` is **pasted into your project's custom
 > instructions**, not uploaded as a file.
