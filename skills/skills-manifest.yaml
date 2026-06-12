@@ -1,0 +1,191 @@
+# Brandon's Kung Fu — Skill Source Manifest (additive metadata)
+#
+# Status: v0.1. Keyed-additive. This file does NOT replace SKILLS.md.
+# SKILLS.md remains the canonical owner of provenance doctrine and the
+# bundle/reference/distilled model. This manifest mirrors the provenance tag
+# and adds machine-readable source/license/install metadata keyed by skill
+# name. If the two ever disagree, SKILLS.md wins — fix the manifest, not the
+# doctrine.
+#
+# This is a SEED set of representative entries, not the full local skill set.
+# A manifest entry is metadata only. It is NOT proof a skill body is bundled
+# in this repo or installed on your machine. Bundling requires a per-skill
+# scrub + license audit; installing is a separate, user-approved action.
+#
+# Field meanings:
+#   name           skill slug (without leading slash)
+#   category        core-workflow | rag-cag | qa-debug | security | ui-ux
+#   provenance      AUTH-G | AUTH-P | 3P | MISMATCH | PHANTOM | AUTHOR-NEW
+#                     AUTH-G  owner-authored, generic; bundle candidate after audit
+#                     AUTH-P  owner-authored but project-coupled; never bundled raw
+#                     3P      third-party; reference only
+#                     MISMATCH/PHANTOM  unresolved name; resolve before linking
+#                     AUTHOR-NEW  planned owner skill; prose pattern until built
+#   source_url      public source URL, or "" if none verified. NEVER a private remote.
+#   license         SPDX id once verified, else ""
+#   license_status  pending | cleared | incompatible | n-a
+#   bundle_status   none | candidate | bundled | never
+#   install_status  reference | installable | installed-local
+#   notes           short free text
+#
+# Rule: source_url stays "" until a PUBLIC source is verified. An empty
+# source_url is correct and safe; a guessed or private URL is a defect.
+
+schema_version: 1
+canonical_provenance: ../skills/SKILLS.md
+
+skills:
+  # --- core workflow / communication ---
+  - name: caveman
+    category: core-workflow
+    provenance: 3P
+    source_url: ""
+    license: ""
+    license_status: pending
+    bundle_status: never
+    install_status: reference
+    notes: "Communication-mode skill. Loads as a marketplace plugin; authorship unverified — treat as 3P until a provenance audit proves owner-authored. Do not bundle on assumption."
+
+  - name: gstack-workflow
+    category: core-workflow
+    provenance: 3P
+    source_url: ""
+    license: ""
+    license_status: pending
+    bundle_status: never
+    install_status: reference
+    notes: "Third-party conductor system. Only the generic conductor doctrine is distilled as prose in chatgpt-project-files (01/08/10). Skill bodies, bins, and local memory stores are never bundled or copied."
+
+  # --- rag / cag / ai app engineering ---
+  - name: rag-full-stack
+    category: rag-cag
+    provenance: AUTH-G
+    source_url: ""
+    license: ""
+    license_status: pending
+    bundle_status: candidate
+    install_status: reference
+    notes: "Owner-authored generic orchestrator. Bundle candidate ONLY after per-skill scrub + license audit; body absent until then."
+
+  - name: rag-engineer
+    category: rag-cag
+    provenance: 3P
+    source_url: ""
+    license: ""
+    license_status: pending
+    bundle_status: never
+    install_status: reference
+    notes: "Third-party. Reference by name only; install from upstream."
+
+  - name: vector-database-engineer
+    category: rag-cag
+    provenance: 3P
+    source_url: ""
+    license: ""
+    license_status: pending
+    bundle_status: never
+    install_status: reference
+    notes: "Third-party. Reference by name only; install from upstream."
+
+  - name: llm-evaluation
+    category: rag-cag
+    provenance: 3P
+    source_url: ""
+    license: ""
+    license_status: pending
+    bundle_status: never
+    install_status: reference
+    notes: "Third-party. Reference by name only; install from upstream."
+
+  # --- qa / testing / debugging ---
+  - name: quality-triad
+    category: qa-debug
+    provenance: AUTH-G
+    source_url: ""
+    license: ""
+    license_status: pending
+    bundle_status: candidate
+    install_status: reference
+    notes: "Owner-authored generic orchestrator. Bundle candidate ONLY after per-skill scrub + license audit; body absent until then."
+
+  - name: test-driven-development
+    category: qa-debug
+    provenance: 3P
+    source_url: ""
+    license: ""
+    license_status: pending
+    bundle_status: never
+    install_status: reference
+    notes: "Third-party. Reference by name only; install from upstream."
+
+  - name: phase-gated-debugging
+    category: qa-debug
+    provenance: 3P
+    source_url: ""
+    license: ""
+    license_status: pending
+    bundle_status: never
+    install_status: reference
+    notes: "Third-party. Reference by name only; install from upstream."
+
+  - name: root-cause-tracing
+    category: qa-debug
+    provenance: 3P
+    source_url: ""
+    license: ""
+    license_status: pending
+    bundle_status: never
+    install_status: reference
+    notes: "Third-party. Reference by name only; install from upstream."
+
+  # --- security / release safety ---
+  - name: threat-modeling-expert
+    category: security
+    provenance: 3P
+    source_url: ""
+    license: ""
+    license_status: pending
+    bundle_status: never
+    install_status: reference
+    notes: "Third-party. Reference by name only; install from upstream."
+
+  - name: secrets-management
+    category: security
+    provenance: 3P
+    source_url: ""
+    license: ""
+    license_status: pending
+    bundle_status: never
+    install_status: reference
+    notes: "Third-party. Reference by name only; install from upstream."
+
+  - name: defense-in-depth
+    category: security
+    provenance: 3P
+    source_url: ""
+    license: ""
+    license_status: pending
+    bundle_status: never
+    install_status: reference
+    notes: "Third-party. Reference by name only; install from upstream."
+
+  # --- ui / ux ---
+  - name: ui-ux-pro-max
+    category: ui-ux
+    provenance: 3P
+    source_url: ""
+    license: ""
+    license_status: pending
+    bundle_status: never
+    install_status: reference
+    notes: "Third-party. Catalog/reference only; no owner-authored UI body to bundle."
+
+  - name: frontend-design
+    category: ui-ux
+    provenance: 3P
+    source_url: ""
+    license: ""
+    license_status: pending
+    bundle_status: never
+    install_status: reference
+    notes: "Third-party. Catalog/reference only; no owner-authored UI body to bundle."
