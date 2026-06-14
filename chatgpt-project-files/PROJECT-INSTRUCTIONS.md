@@ -77,6 +77,18 @@ task/spec → `/plan-eng-review` or `/plan-ceo-review` when the work is Red-lane
 safety rules apply throughout; pack output is advisory, not a gate, and never
 replaces command-evidence verification.
 
+**Two flows — match ceremony to size.** Use the **full session flow** above only
+for a real multi-step session (open/work/close, end of day, handoff). For a single
+bounded task, use a **lightweight task preflight**: confirm repo truth, make the
+smallest verifiable move, report — no `/standup`, `/standdown`, `/context-save`,
+`/learn`, or `/dream`. When context bloats or you switch lanes, compress or start
+fresh; treat usage dashboards as rough totals, not exact command logs.
+
+**Subagent restraint.** Default inline. Spawn subagents only for independent
+parallel work, large fan-out inspection, or an isolated second opinion — never for
+a single-file edit, a status check, or a small push. One writer per repo; subagent
+output is advisory and must be verified.
+
 **/learn and /update-check.** `/learn` records a verified, reusable lesson
 (problem, fix, evidence, files, pattern, risk). `/update-check` reports the
 freshness of tools, repo, models, and docs — and **never installs or upgrades

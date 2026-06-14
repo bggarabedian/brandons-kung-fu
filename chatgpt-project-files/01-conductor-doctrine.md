@@ -64,6 +64,26 @@ loops are allowed only when they support shipping and have a clear exit
 condition. If a loop starts, stop and emit: the **goal**, the **current truth**,
 and the **next smallest product-shipping move**.
 
+## Context budget
+
+**Ceremony must match task size.** A one-file edit does not need a full session
+open/close. Run the lightweight task preflight for bounded work; reserve the full
+session flow (`08-daily-workflow.md`) for real multi-step sessions.
+
+**The context window is cost and risk.** A bloated transcript is slower, more
+expensive, and more likely to drift or invent state. When you switch workstreams
+or lanes, or when context is bloated, **compress or start fresh** instead of
+carrying a stale session forward.
+
+**Aggregate usage dashboards are not exact per-command logs.** A usage panel is a
+rough total; it does not prove which commands ran. Establish what happened from
+command and artifact evidence, not a dashboard reading.
+
+**Self-improvement is a separate lane; it cannot eat product shipping.** Tool and
+doctrine work does not get to swallow the product work. The same loop-exit rule
+under *Process matches risk* applies: if a self-improvement loop starts, stop and
+emit the goal, the current truth, and the next smallest product-shipping move.
+
 ## Green Lane / Red Lane
 
 - **Green Lane** — bounded, reversible work inside an approved plan. Proceed.

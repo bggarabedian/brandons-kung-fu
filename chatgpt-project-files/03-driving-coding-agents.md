@@ -128,6 +128,23 @@ A clear stuck-note turns a dead end into a decision the human can make fast.
 - **Keep the agent in its box.** If output drifts past scope, HALT and re-scope.
 - **No vendor lock-in.** These patterns are tool-agnostic; phrase tasks so any
   capable coding agent can execute them.
+- **Report-size discipline.** Inspection and audit replies return tight excerpts
+  and exact command exit codes, not full file or diff dumps. Paste a full diff
+  only when explicitly asked or for an operator audit.
+
+## Subagent discipline
+
+Extra agents cost context and coordination. Default to doing the work **inline**.
+
+- **Spawn a subagent only for** genuinely independent parallel work, a large
+  fan-out inspection that would otherwise blow the main thread's context, or an
+  isolated second-opinion / review pass.
+- **Do not spawn one for** a single-file edit, a simple status check, or a small
+  push. Inline is cheaper and easier to verify.
+- **One writer per repo / fileset.** If agents run in parallel, only one may write
+  a given area; the rest are read-only. Keep write lanes from overlapping.
+- **Subagent output is advisory.** Re-verify it with your own command evidence
+  before acting; an agent's report is not proof.
 
 ## Related project files
 

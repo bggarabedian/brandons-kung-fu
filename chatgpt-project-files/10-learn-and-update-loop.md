@@ -11,6 +11,12 @@ installs.
 `/learn` records a lesson **only after it is verified** (you saw it work). Keep it
 small and reusable.
 
+**Capture is selective, not reflexive.** `/learn` is for a verified, reusable
+lesson — not a log of every small task. Most bounded tasks produce nothing durable;
+skip the capture when there is no reusable rule. `/dream` is **periodic
+consolidation**, not a session-closeout reflex — run it when the notes have grown
+enough to need tidying, not after every task.
+
 Capture fields:
 
 - **Problem** — what went wrong or what was unclear.
