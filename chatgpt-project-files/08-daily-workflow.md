@@ -1,6 +1,6 @@
 # Brandon's Kung Fu — Daily Workflow (Project File)
 
-> **Status:** v0.1. Generic daily-workflow patterns only — no
+> **Status:** v0.2.0. Generic daily-workflow patterns only — no
 > proprietary, legal, or business context, and no third-party skill bodies.
 > Vendor-neutral.
 

@@ -1,6 +1,9 @@
 # Local / secret files
 *.local.*
 denylist.local.txt
+skills.sources.local.json
+# but DO track the committed example template:
+!skills.sources.local.example.json
 .env
 
 # Python
@@ -15,6 +18,9 @@ node_modules/
 # Build output
 dist/
 build/
+
+# Local install/test sandbox (install-claude --target .tmp/...)
+.tmp/
 
 # Runtime
 ledger/

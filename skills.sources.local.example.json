@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "note": "EXAMPLE of the operator's private/local companion list. Copy this to skills.sources.local.json (gitignored) and put your real entries there. The CLI merges this local file over skills.sources.json at runtime (by id). Local paths and private/unpublished repos belong ONLY in the gitignored file — never in the public skills.sources.json and never in docs.",
+  "sources": [
+    {
+      "id": "example-local-pack",
+      "name": "An example locally-collected pack",
+      "type": "local-overlay",
+      "priority": "optional",
+      "upstream_url": "",
+      "pinned_ref": "",
+      "license": "",
+      "provenance_status": "local-only",
+      "install_mode": "copy-from-existing",
+      "default_target": "<your Claude skills directory>/example-local-pack",
+      "source_path": "<absolute path to your local copy>",
+      "contains_third_party_bodies": "unknown",
+      "bundle_policy": "local-only",
+      "safe_commands": [],
+      "red_commands": [],
+      "notes": "local-only entries are never published and never auto-cloned. install_mode copy-from-existing means you copy from source_path yourself; the CLI only ever reports the plan."
+    },
+    {
+      "id": "example-verified-clone",
+      "name": "An example public pack you have verified",
+      "type": "claude-skill-pack",
+      "priority": "recommended",
+      "upstream_url": "https://github.com/<org>/<repo>",
+      "pinned_ref": "<commit-or-tag>",
+      "license": "<SPDX id>",
+      "provenance_status": "verified",
+      "install_mode": "clone",
+      "default_target": "<your Claude skills directory>/<repo>",
+      "contains_third_party_bodies": true,
+      "bundle_policy": "reference-only",
+      "safe_commands": [],
+      "red_commands": [],
+      "notes": "Only entries you have personally verified (real public https upstream + license) and marked provenance_status verified + install_mode clone are eligible for `skills bootstrap --apply`."
+    }
+  ]
+}

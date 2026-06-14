@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "kit": "Brandon's Kung Fu",
+  "note": "Public, reference-safe companion skill sources. An entry is auto-clonable by `skills bootstrap --apply` ONLY when provenance_status == 'verified', install_mode == 'clone', and upstream_url is a public https URL. Entries with an empty or unverified upstream_url are never cloned — the user fills in and verifies the real upstream first. The operator's full local/private collection lives only in the gitignored skills.sources.local.json (see skills.sources.local.example.json).",
+  "fields": {
+    "type": "gstack | claude-skill-pack | command-pack | docs-pack | local-overlay | unknown",
+    "priority": "required | recommended | optional",
+    "provenance_status": "verified | needs-review | local-only | forbidden-public",
+    "install_mode": "clone | copy-from-existing | manual | unsupported",
+    "bundle_policy": "reference-only | owner-authored-bundle-ok | local-only"
+  },
+  "sources": [
+    {
+      "id": "gstack",
+      "name": "GStack",
+      "type": "gstack",
+      "priority": "recommended",
+      "upstream_url": "",
+      "pinned_ref": "",
+      "version": "",
+      "license": "MIT",
+      "provenance_status": "needs-review",
+      "install_mode": "manual",
+      "default_target": "<your Claude skills directory>/gstack",
+      "contains_third_party_bodies": true,
+      "bundle_policy": "reference-only",
+      "safe_commands": [
+        "/context-restore", "/context-save", "/health", "/office-hours",
+        "/plan-ceo-review", "/plan-eng-review", "/investigate", "/review",
+        "/qa-only", "/cso", "/retro", "/learn", "/dream", "/careful", "/guard", "/freeze"
+      ],
+      "red_commands": [
+        "/qa (fix mode)", "/ship", "/land-and-deploy", "/canary", "/browse",
+        "/scrape", "connect-chrome", "chrome-cdp", "open-gstack-browser",
+        "gstack-extension", "setup-gbrain", "sync-gbrain", "gstack-upgrade",
+        "gstack-config", "gstack-settings-hook", "pair-agent", "agents", "openclaw"
+      ],
+      "notes": "The default operating layer. Confirm the official upstream and license before any bootstrap; this kit never copies its bodies."
+    },
+    {
+      "id": "superpowers-skills",
+      "name": "superpowers-skills (operator-referenced)",
+      "type": "claude-skill-pack",
+      "priority": "optional",
+      "upstream_url": "",
+      "pinned_ref": "",
+      "version": "",
+      "license": "",
+      "provenance_status": "needs-review",
+      "install_mode": "manual",
+      "default_target": "<your Claude skills directory>/superpowers",
+      "contains_third_party_bodies": true,
+      "bundle_policy": "reference-only",
+      "safe_commands": [],
+      "red_commands": [],
+      "notes": "Referenced in the operator's own config under the shorthand obra/superpowers-skills. Verify the official upstream URL and license before bootstrap. Reference-only; never copy bodies into this kit."
+    },
+    {
+      "id": "scientific-agent-skills",
+      "name": "scientific-agent-skills (operator-referenced)",
+      "type": "claude-skill-pack",
+      "priority": "optional",
+      "upstream_url": "",
+      "pinned_ref": "",
+      "version": "",
+      "license": "",
+      "provenance_status": "needs-review",
+      "install_mode": "manual",
+      "default_target": "<your Claude skills directory>/scientists",
+      "contains_third_party_bodies": true,
+      "bundle_policy": "reference-only",
+      "safe_commands": [],
+      "red_commands": [],
+      "notes": "Referenced in the operator's config under the shorthand K-Dense-AI/scientific-agent-skills (installed via npx skills add). Verify the official upstream URL and license before bootstrap."
+    }
+  ]
+}

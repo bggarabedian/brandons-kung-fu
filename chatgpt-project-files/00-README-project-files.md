@@ -1,6 +1,6 @@
 # Brandon's Kung Fu — ChatGPT Project Files
 
-> **Status:** v0.1. These are generic project-conductor files you
+> **Status:** v0.2.0. These are generic project-conductor files you
 > upload by hand into an LLM project (ChatGPT, Claude, or similar). They carry
 > no proprietary application names, no business goals, no private paths, no raw
 > memories, and no third-party skill bodies.
