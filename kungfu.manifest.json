@@ -1,0 +1,94 @@
+{
+  "kit": "Brandon's Kung Fu",
+  "version": "0.2.0",
+  "release_stage": "pre-1.0",
+  "tagline": "Portable agentic-engineering operating doctrine. The conductor scopes, plans, prompts, audits, and verifies; the coding agent implements locally; verification proves with command evidence.",
+  "source_repo": "brandons-kung-fu",
+  "chatgpt": {
+    "project_name_suggestion": "Brandon's Kung Fu",
+    "source_dir": "chatgpt-project-files",
+    "instructions_source": "chatgpt-project-files/PROJECT-INSTRUCTIONS.md",
+    "upload_order": [
+      {
+        "group": "Required first (the spine)",
+        "files": [
+          {"name": "00-README-project-files.md", "description": "Index, upload order, and setup for the project files."},
+          {"name": "01-conductor-doctrine.md", "description": "The conductor role, Green/Red lanes, HALT behavior, verify-before-claiming."},
+          {"name": "07-safety-and-scrub.md", "description": "Safety posture, public-operation boundaries, and scrub rules."}
+        ]
+      },
+      {
+        "group": "Core next",
+        "files": [
+          {"name": "02-coding-standards.md", "description": "Generic full-stack engineering standards the output is judged against."},
+          {"name": "03-driving-coding-agents.md", "description": "The task template, prompt patterns, and supervision rules."}
+        ]
+      },
+      {
+        "group": "Optional / advanced",
+        "files": [
+          {"name": "04-rag-cag.md", "description": "Generic retrieval (RAG/CAG) patterns."},
+          {"name": "05-qa-and-debug.md", "description": "Generic QA, verification, and debugging patterns."},
+          {"name": "06-skills-and-routing.md", "description": "Skill catalog and routing; GStack as a referenced third-party pack."},
+          {"name": "08-daily-workflow.md", "description": "The GStack-native start / work / close session loop."},
+          {"name": "09-codex-and-agent-tooling.md", "description": "Optional Codex CLI / multi-agent tooling guidance and install policy."},
+          {"name": "10-learn-and-update-loop.md", "description": "The learn loop, tool-freshness checks, and memory destinations."}
+        ]
+      }
+    ],
+    "instructions_file": {"name": "PROJECT-INSTRUCTIONS.md", "description": "Copy-ready block for the ChatGPT Project Instructions field (becomes PROJECT-INSTRUCTIONS.txt in the package)."},
+    "generated_outputs": {
+      "export": "dist/chatgpt-project-files",
+      "setup_package": "dist/chatgpt-project"
+    }
+  },
+  "claude": {
+    "context_dir": "chatgpt-project-files",
+    "context_files": [
+      "chatgpt-project-files/00-README-project-files.md",
+      "chatgpt-project-files/01-conductor-doctrine.md",
+      "chatgpt-project-files/02-coding-standards.md",
+      "chatgpt-project-files/03-driving-coding-agents.md",
+      "chatgpt-project-files/06-skills-and-routing.md",
+      "chatgpt-project-files/07-safety-and-scrub.md",
+      "chatgpt-project-files/08-daily-workflow.md",
+      "chatgpt-project-files/10-learn-and-update-loop.md",
+      "chatgpt-project-files/PROJECT-INSTRUCTIONS.md",
+      "skills/SKILLS.md",
+      "skills/skill-access-layer.md"
+    ],
+    "install_targets": {
+      "namespace": "brandons-kung-fu",
+      "default_hint": "<your Claude context or skills directory>/brandons-kung-fu"
+    }
+  },
+  "companion_sources": {
+    "public_manifest": "skills.sources.json",
+    "local_manifest": "skills.sources.local.json (gitignored)",
+    "local_example": "skills.sources.local.example.json",
+    "note": "GStack is one companion among several. All companions are referenced, license-aware, and user-approved; never vendored. See docs/SKILL_STACK_SETUP.md."
+  },
+  "gstack": {
+    "relationship": "Referenced third-party operating layer. Command names and operating rules only; never copy skill bodies. Brandon's Kung Fu stays the doctrine.",
+    "reference_only_commands": [
+      "/context-restore", "/context-save", "/health", "/office-hours",
+      "/plan-ceo-review", "/plan-eng-review", "/plan-design-review", "/plan-devex-review",
+      "/investigate", "/review", "/qa-only", "/cso", "/retro", "/learn", "/dream",
+      "/careful", "/guard", "/freeze"
+    ],
+    "red_approval_commands": [
+      "/qa (fix mode)", "/design-html", "/document-generate", "/document-release", "/make-pdf",
+      "/autoplan", "/browse", "/scrape", "connect-chrome", "chrome-cdp", "open-gstack-browser",
+      "gstack-extension", "/ship", "/land-and-deploy", "/canary", "setup", "gstack-upgrade",
+      "gstack-config", "gstack-settings-hook", "plan-tune", "setup-gbrain", "sync-gbrain",
+      "gbrain-supabase-provision", "pair-agent", "agents", "openclaw"
+    ]
+  },
+  "never_copy": [
+    "third-party skill bodies",
+    "private paths or remotes",
+    "secrets or credentials",
+    "raw memories, learnings, or ledgers",
+    "proprietary or project-specific names"
+  ]
+}

@@ -1,6 +1,6 @@
 # Brandon's Kung Fu — Conductor Doctrine
 
-> **Status:** v0.1. Generic conductor rules only — no proprietary
+> **Status:** v0.2.0. Generic conductor rules only — no proprietary
 > product, legal, business, private-repo, or third-party skill-body content.
 > Vendor-neutral: "the model" and "the coding agent" stand for whatever tools
 > you use.

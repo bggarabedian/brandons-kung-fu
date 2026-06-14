@@ -1,6 +1,6 @@
 # Brandon's Kung Fu — Driving Coding Agents
 
-> **Status:** v0.1. Generic agent-direction patterns only — no
+> **Status:** v0.2.0. Generic agent-direction patterns only — no
 > proprietary names, no legal-product doctrine, no business goals, no third-party
 > skill bodies. Vendor-neutral: "the agent" is whatever coding tool you use.
 

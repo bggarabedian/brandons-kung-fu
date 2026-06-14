@@ -1,6 +1,6 @@
 # Brandon's Kung Fu — Codex CLI and Agent Tooling (Project File)
 
-> **Status:** v0.1. Generic project-file guidance only — no
+> **Status:** v0.2.0. Generic project-file guidance only — no
 > proprietary names, no third-party skill bodies. Tool names below name the tools
 > the guidance is about.
 
@@ -81,9 +81,10 @@ do not assume them.
 ## `/cli-anything` (future pattern)
 
 A planned pattern for turning a repeated workflow into a small, typed CLI tool —
-so a routine you run by hand becomes one reliable command. It is a **v0.2
-candidate**, noted as a prose pattern in `../skills/SKILLS.md`; **not a v0.1
-blocker** and not a bundled skill yet.
+so a routine you run by hand becomes one reliable command. It is a
+**future-version candidate**, noted as a prose pattern in `../skills/SKILLS.md`;
+**not a blocker for the current release** and not a bundled skill yet. (Distinct
+from `scripts/kungfu.py`, the kit's own setup CLI.)
 
 ## Related project files
 

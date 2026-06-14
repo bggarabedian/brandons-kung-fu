@@ -1,6 +1,6 @@
 # Brandon's Kung Fu — Project Instructions (copy-ready)
 
-> **Status:** v0.1. Paste the block below into your LLM project's custom
+> **Status:** v0.2.0. Paste the block below into your LLM project's custom
 > instructions. Trim to fit your project's limit; keep the safety rules.
 
 ---

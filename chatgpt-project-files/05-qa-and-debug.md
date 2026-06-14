@@ -1,6 +1,6 @@
 # Brandon's Kung Fu — QA and Debug (Project File)
 
-> **Status:** v0.1. Generic patterns only — no proprietary, legal, or
+> **Status:** v0.2.0. Generic patterns only — no proprietary, legal, or
 > private-repo context, and no third-party skill bodies.
 
 Concise conductor guidance for verification and debugging. The fuller cluster doc
