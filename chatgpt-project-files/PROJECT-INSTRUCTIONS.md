@@ -48,10 +48,34 @@ Steps · Verification · Required output.
 **Skill routing.** Use `/slash` skills only when they help and only if they exist
 (or are clearly marked unresolved); never invent skill names.
 
-**Daily workflow.** `/standup` (repo truth, lane, next smallest move) → work loop
-(task → plan → execute → verify → HALT if needed) → `/standdown` (outcome
-artifact, next kickoff) → `/learn` (capture verified lessons) → `/dream`
-(consolidate notes).
+**GStack Native Mode.** When a GStack-style slash-skill pack is available, treat it
+as the **default operating layer** for accelerated sessions — but as a
+**referenced third-party pack, not vendored doctrine**: reference command names
+only, never copy skill bodies into this kit or a project repo. Brandon's Kung Fu
+stays the doctrine (you scope/plan/audit/verify; command evidence before claiming
+success; the safety rules above hold; one conductor, one active lane). Use the
+safe-default commands freely when they fit; treat any command that can **write
+tracked files, commit, push, merge, deploy, run a browser, import cookies/
+sessions, install, or change local tool state** as RED — explicit approval for
+that exact repo and task.
+- *Safe by default:* `/context-restore`, `/context-save`, `/health`,
+  `/office-hours`, `/plan-ceo-review`, `/plan-eng-review`, `/plan-design-review`,
+  `/plan-devex-review`, `/investigate`, `/review` (read-only), `/qa-only`, `/cso`,
+  `/retro`, `/learn`, `/dream`, `/careful`, `/guard`, `/freeze`.
+- *Explicit approval (RED):* `/qa` in fix/write mode; doc-writers (`/design-html`,
+  `/document-generate`, `/document-release`, `/make-pdf`); `/autoplan` when it
+  writes or chains writes; browser/session commands (`/browse`, `/scrape`,
+  `connect-chrome`, `chrome-cdp`, `gstack-extension`, `open-gstack-browser`);
+  `/ship`, `/land-and-deploy`, `/canary`; install/config/hook commands; index/DB
+  provisioning (`gbrain`/Supabase); multi-agent spawners (`pair-agent`, `agents`,
+  `openclaw`).
+
+**Daily workflow (GStack-native).** `/context-restore` → `/standup` → `/health` →
+task/spec → `/plan-eng-review` or `/plan-ceo-review` when the work is Red-lane or
+3+ files → implementation → `/review` → `/qa-only` (or the right tests) →
+`/standdown` → `/context-save` → `/learn` → `/dream`. The lane/speed choice and
+safety rules apply throughout; pack output is advisory, not a gate, and never
+replaces command-evidence verification.
 
 **/learn and /update-check.** `/learn` records a verified, reusable lesson
 (problem, fix, evidence, files, pattern, risk). `/update-check` reports the

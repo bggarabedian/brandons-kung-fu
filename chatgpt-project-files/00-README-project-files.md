@@ -26,6 +26,9 @@ Together they teach the LLM project to:
 - Keep a **PR-only, verification-first** workflow — no direct pushes to protected
   branches; prove changes with command evidence before claiming success.
 - Help you **start the day, work through the day, and close the day**.
+- Treat a **GStack-style slash-skill pack as the default operating layer**
+  (referenced third-party, never vendored) — defined in `PROJECT-INSTRUCTIONS.md`
+  and `06-skills-and-routing.md`, with the daily loop in `08-daily-workflow.md`.
 
 ## File list
 
