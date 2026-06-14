@@ -21,6 +21,28 @@ Every task you hand an agent should carry six parts:
 
 Write all six **before** the agent starts. A missing part is where work goes wrong.
 
+## GStack-native task pattern
+
+Run the task on the GStack operating layer, with the doctrine still conducting:
+
+1. **Context / health first** (when useful): `/context-restore` to reload state,
+   `/health` for repo truth — read-only, no writes.
+2. **Choose the lane before the speed.** Green vs Red (Red for architecture,
+   security, hooks/CI, schema, public posture, or anything anomalous); Inspection
+   only when just reading.
+3. **Plan with the safe pack commands when they help:** `/office-hours`,
+   `/plan-ceo-review`, `/plan-eng-review` — read-only planning, no file writes.
+4. **Implement** through the coding agent inside the task box.
+5. **Review read-only:** `/review` the diff, then `/qa-only` or the project's
+   tests. No `--fix` / write mode without explicit approval.
+6. **Require exact verification output** — the command and its result — before
+   claiming success.
+7. **Gate the RED commands.** Anything that writes tracked files, commits, pushes,
+   merges, deploys, drives a browser, imports sessions, installs, or changes local
+   tool state needs explicit approval for that exact repo and task (see
+   `06-skills-and-routing.md`). Pack commands are **referenced by name only** —
+   never copy a pack body.
+
 ## Green Lane prompt pattern
 
 For bounded, reversible work inside an approved plan:

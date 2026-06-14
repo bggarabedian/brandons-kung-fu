@@ -25,6 +25,22 @@ This is division of labor, not abdication. **Human comprehension is not
 optional** — if you cannot explain what the agent produced and why it is correct,
 you are not done reviewing.
 
+## The operating layer
+
+One system, clear layers: **Brandon's Kung Fu is the doctrine** — it conducts,
+sets the lane, enforces safety, and demands verification. A **GStack-style
+slash-skill pack is the default operating layer** — the muscle for context,
+health, planning, review, investigation, QA-only, security review, memory, and
+closeout. The **coding agent (for example Claude Code) is the local implementation
+IC.** Optional alternate reviewers or agents run only in **explicitly approved,
+isolated lanes** (separate branches/worktrees). One conductor; one active
+implementation lane.
+
+The pack is **referenced third-party** — command names and operating rules only,
+never copied bodies — and its output is **advisory, never a substitute for
+command-evidence verification.** The safe-default and explicit-approval command
+lists live in `06-skills-and-routing.md`.
+
 ## Small, reversible changes
 
 **Batch size is risk.** The larger a single change, the harder it is to review,

@@ -21,6 +21,31 @@ bundled library.
 - **Distilled** — a useful technique with no shippable skill. Documented as prose
   in a cluster file (such as `../skills/rag-cag.md`), never as a `/slash` link.
 
+## GStack — a referenced skill pack
+
+A GStack-style pack is the default slash-skill **operating layer** for accelerated
+sessions, and is treated as **referenced third-party** capability (`3P`
+provenance). Rules:
+
+- **Reference command names only.** Never copy a pack skill body into this kit or
+  a project repo — names and operating rules, not bodies.
+- **Doctrine stays here.** Brandon's Kung Fu governs scope/plan/audit/verify and
+  the safety rules; pack output is advisory, not a gate.
+- **Safe-default commands** (read-only or local-reversible, no approval):
+  `/context-restore`, `/context-save`, `/health`, `/office-hours`,
+  `/plan-ceo-review`, `/plan-eng-review`, `/plan-design-review`,
+  `/plan-devex-review`, `/investigate`, `/review` (read-only), `/qa-only`, `/cso`,
+  `/retro`, `/learn`, `/dream`, `/careful`, `/guard`, `/freeze`.
+- **Explicit-approval commands** (RED — can write tracked files, commit, push,
+  merge, deploy, drive a browser, import cookies/sessions, install, or change
+  local tool state): `/qa` (fix mode), `/design-html`, `/document-generate`,
+  `/document-release`, `/make-pdf`, `/autoplan` (when writing/chaining), the
+  browser/session commands, `/ship`, `/land-and-deploy`, `/canary`, install/
+  config/hook commands, index/DB provisioning, and multi-agent spawners.
+  Authorize per exact repo and task.
+- A pack command moves from referenced to anything more only after a license /
+  provenance audit (see `07-safety-and-scrub.md`).
+
 ## Routing rules
 
 - Route to a skill **only when it genuinely helps** the task.

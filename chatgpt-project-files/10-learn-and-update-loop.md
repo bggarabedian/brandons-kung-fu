@@ -25,6 +25,14 @@ Capture fields:
 User-specific strengthening (personal preferences, private context) belongs in
 **private or local overlays**, never in the public kit.
 
+**GStack memory is local-continuity only.** When a GStack-style pack stores
+learnings or session memory (for example its `/learn` and `/dream`), that store is
+a **local / private overlay**, kept out of any public repo. Use it for
+cross-session continuity, but **raw memories, ledgers, and learnings are never
+published** — only a scrubbed, generic lesson may graduate into the public kit,
+and only after the scrub + provenance audit below. Reference the pack commands by
+name; never copy their bodies.
+
 ## /update-check — freshness, not auto-upgrade
 
 `/update-check` reports the state of the repo, CLIs, models, docs, and tools. It
