@@ -30,6 +30,17 @@ fresh** rather than dragging a stale session forward. Treat aggregate usage pane
 as rough totals, not an exact per-command log — confirm what ran from command and
 artifact evidence, not a dashboard number.
 
+**`/compact` and `/clear`.** Use `/compact` after a major landed checkpoint, a long report,
+or before the next slice in the same chat — it trims the transcript without losing the
+thread. Use `/clear` before switching to an unrelated major workstream or starting a fresh
+phase, once continuity is already captured (committed, PR'd, or written to a memory overlay).
+Both are **operator-visible recommendations** — name them in the report; never assume them
+silently.
+
+**Surface the flow choice.** Every report should state which flow it used — **full session
+flow** or **lightweight task preflight** — so the choice is visible, not implicit. This keeps
+the lightweight path available while making the decision auditable.
+
 ## The loop (GStack-native)
 
 `/context-restore` → `/standup` → `/health` → task/spec → `/plan-eng-review` or
