@@ -99,6 +99,23 @@ removed.
 
 ## Generic templates (adapt locally; placeholders only)
 
+### `/task-preflight` — bounded-task preflight (no session ceremony)
+
+```
+Preflight a single bounded task on <REPO_ROOT> — the cheap path, not a session open.
+1. Read just enough repo truth with an explicit working dir:
+   - git -C "<REPO_ROOT>" rev-parse --abbrev-ref HEAD
+   - git -C "<REPO_ROOT>" status --short
+2. Confirm the task is bounded and reversible. If it is Red-lane or grows past the
+   spec, stop and escalate to the full session flow instead.
+3. Make the smallest move, then verify with command evidence.
+This is NOT /standup and does not replace it: it writes no ledger artifact and runs
+no /standdown, /learn, or /dream. Use it for one small edit, a status check, a gate
+run, or a read-only inspection.
+RUN NOW: perform steps 1-3. Output a short confirmation (repo truth + the verify
+result + HALT status). Do not echo this instruction block.
+```
+
 ### `/standup` — open the session
 
 ```

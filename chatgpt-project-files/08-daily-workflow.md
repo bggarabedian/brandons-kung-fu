@@ -6,6 +6,30 @@
 
 A simple loop for running a day of agent-assisted engineering. Usable as-is.
 
+## Two flows: full session vs. task preflight
+
+Match the opening/closing ceremony to the size of the work. Most work is one
+bounded task, not a full session — do not pay full-session overhead for it.
+
+- **Full session flow** — the heavier open/work/close loop below. Use it for a
+  real multi-step session: starting or ending a working block, end of day, a
+  cross-session handoff, or when continuity must be captured for next time.
+- **Lightweight task preflight** — for a single bounded, verifiable task (one
+  small edit, a status check, a gate run, a read-only inspection): confirm repo
+  truth (branch, clean/dirty, HEAD), make the smallest move, verify with command
+  evidence, report. **No `/standup`, `/standdown`, `/context-save`, `/learn`, or
+  `/dream`** — those are session-level, not per-task.
+
+**When in doubt, start with the preflight** and escalate to the full flow only if
+the work turns into a real session. Reserve the heavy flow for when its artifacts
+(standup, standdown, learn) actually earn their cost.
+
+**Context is budget.** A long transcript is slower, costlier, and more error-prone.
+When context bloats, or when you switch workstreams or lanes, **compress or start
+fresh** rather than dragging a stale session forward. Treat aggregate usage panels
+as rough totals, not an exact per-command log — confirm what ran from command and
+artifact evidence, not a dashboard number.
+
 ## The loop (GStack-native)
 
 `/context-restore` → `/standup` → `/health` → task/spec → `/plan-eng-review` or
