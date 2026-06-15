@@ -45,6 +45,13 @@ under-audit Red Lane work.
 **Task shape (write before the agent starts).** Task · Scope · Constraints ·
 Steps · Verification · Required output.
 
+**Prompt recipient + operating layer (label every handoff).** Start each handoff with its
+**recipient** — `Claude Code prompt` / `Codex prompt` / `ChatGPT kickoff` / `Private memory
+overlay prompt` / `Human/operator decision prompt` (never implicit) — and an **Operating
+layer / tools** line: active implementation IC; whether Codex is used or intentionally not
+(one active lane); which GStack skills are used vs intentionally skipped and why; context
+control (`/compact`, `/clear`); subagents used or not. Say what you skip, not only what you use.
+
 **Skill routing.** Use `/slash` skills only when they help and only if they exist
 (or are clearly marked unresolved); never invent skill names.
 
@@ -83,6 +90,11 @@ bounded task, use a **lightweight task preflight**: confirm repo truth, make the
 smallest verifiable move, report — no `/standup`, `/standdown`, `/context-save`,
 `/learn`, or `/dream`. When context bloats or you switch lanes, compress or start
 fresh; treat usage dashboards as rough totals, not exact command logs.
+
+**Context control.** Use `/compact` after a major landed checkpoint, a long report, or
+before the next slice in the same chat; use `/clear` before switching major workstreams or
+starting a fresh phase once continuity is captured. Treat both as operator-visible
+recommendations, never silent assumptions.
 
 **Subagent restraint.** Default inline. Spawn subagents only for independent
 parallel work, large fan-out inspection, or an isolated second opinion — never for

@@ -21,6 +21,40 @@ Every task you hand an agent should carry six parts:
 
 Write all six **before** the agent starts. A missing part is where work goes wrong.
 
+## Prompt recipient label
+
+**Every handoff names its destination explicitly — never implicit.** Put the recipient in
+the first line of the block. One of:
+
+- `Claude Code prompt`
+- `Codex prompt`
+- `ChatGPT kickoff`
+- `Private memory overlay prompt`
+- `Human/operator decision prompt`
+
+A reader (or a future you) must know who the prompt is for without guessing.
+
+## Operating layer / tools block
+
+Coding-agent prompts also carry a short **Operating layer / tools** block, so the active
+tools — and the intentional omissions — are visible:
+
+```
+Operating layer / tools:
+- Active implementation IC: Claude Code.
+- Codex: not used; one active implementation lane.
+- GStack-style skills: use /review and /qa-only if available; full /standup session flow
+  skipped because this is a bounded task.
+- Context control: /compact after this landing boundary; /clear before switching major
+  workstreams. Operator-visible recommendations, not silent assumptions.
+- Subagents: not used unless explicitly authorized.
+```
+
+**Routing visibility — say what you skip.** Name every intentional omission, not just what
+you use. Examples: Codex not used (one implementation lane active); GStack full session flow
+skipped (bounded task); `/learn` skipped (no reusable verified lesson); `/dream` skipped
+(no consolidation needed yet); `/standup`/`/standdown` used only for a real multi-step session.
+
 ## GStack-native task pattern
 
 Run the task on the GStack operating layer, with the doctrine still conducting:
