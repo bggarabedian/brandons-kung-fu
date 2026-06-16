@@ -39,6 +39,18 @@ published** — only a scrubbed, generic lesson may graduate into the public kit
 and only after the scrub + provenance audit below. Reference the pack commands by
 name; never copy their bodies.
 
+**Mirroring a lesson to the cockpit (optional).** If you run the optional cockpit
+layer (`12-obsidian-cockpit.md`), a verified lesson may be mirrored into the
+private vault as a decision or stream note — but the same two-tier rule holds:
+
+- **May be mirrored privately:** any verified lesson, in your own words, kept in
+  `<COCKPIT_VAULT>` (outside any public repo). The cockpit is a private store.
+- **May graduate to the public kit:** only the **scrubbed, generic** form of a
+  lesson — no proprietary names, no private paths, no raw memories/ledgers/
+  learnings — and only after the scrub + concept-risk + provenance audit.
+- **Never:** raw learnings, raw ledgers, or a copied-and-scrubbed private note in
+  any public artifact. Public lessons are authored fresh from blank.
+
 ## /update-check — freshness, not auto-upgrade
 
 `/update-check` reports the state of the repo, CLIs, models, docs, and tools. It
@@ -77,3 +89,4 @@ A pattern earns a skill only after it proves itself:
 - `06-skills-and-routing.md` — the skill catalog and routing.
 - `07-safety-and-scrub.md` — scrub and provenance rules.
 - `09-codex-and-agent-tooling.md` — tool roles and install policy.
+- `12-obsidian-cockpit.md` — the optional private cockpit and its mirror rules.

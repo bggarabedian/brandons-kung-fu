@@ -47,6 +47,27 @@ Anything that could become public must be free of private content.
   architecture or domain doctrine described without naming it). Always pair the
   name scan with a **concept-risk review**.
 
+## Obsidian cockpit / vault scrub rules
+
+If the operator runs the optional **cockpit layer** (`12-obsidian-cockpit.md`,
+`../docs/OBSIDIAN_COCKPIT.md`), the private notes vault is a high-leak surface.
+Enforce these as hard constraints:
+
+- **No raw vault notes in any public repo.** A vault note is private continuity;
+  it never lands as a tracked file in anything public.
+- **Never track `.obsidian/`.** The app's config directory stays gitignored and
+  uncommitted, always.
+- **No private vault paths.** `<COCKPIT_VAULT>` lives **outside** `<REPO_ROOT>`;
+  its real path never appears in a tracked file. Use placeholders.
+- **No copy-and-scrub from a vault note.** Public docs and handoff cards are
+  authored fresh from blank — find-and-replace on a private note leaves traces in
+  phrasing and history.
+- **Concept-risk review is mandatory** before any cockpit-derived text crosses
+  into a prompt or a public doc — not just a token scan. The vault describes
+  private systems in detail; a name scan will not catch concept-level leakage.
+- **The vault is never an agent input hose.** A coding agent reads a deliberate,
+  scrubbed handoff card — one at a time — never the raw vault.
+
 ## Denylist model
 
 - The kit's pre-push hook scans tracked files against a denylist of protected
@@ -95,6 +116,8 @@ Before anything is shared or made public:
 - [ ] no raw memories / learnings / ledgers / private paths / remotes / tokens;
 - [ ] no proprietary names, codenames, or business goals;
 - [ ] no third-party skill bodies (reference-only, license-audited);
+- [ ] no raw vault notes, no `.obsidian/`, and no `<COCKPIT_VAULT>` path tracked
+  (if the optional cockpit layer is in use);
 - [ ] `denylist.local.txt` exists locally and is **not** committed;
 - [ ] repo visibility is intended and confirmed; approval recorded for any public
   operation.

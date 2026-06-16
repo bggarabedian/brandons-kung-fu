@@ -3,6 +3,36 @@
 All notable changes to Brandon's Kung Fu. This project is **pre-1.0**: the public
 install/update contract is not yet stable, and no GitHub release is tagged yet.
 
+## v0.3.0-alpha.1 — pending PR (unreleased)
+
+Alpha of the optional **Obsidian Cockpit Layer**: doctrine and templates for a
+private, core-plugin-only notes vault used as **private continuity** — a workstream
+map, a decision record, and the staging area for scrubbed agent handoff cards. The
+repos and session ledgers stay the source of truth; the cockpit only organizes
+private continuity around them. Additive and doctrine-only — no plugins are
+installed or enabled, no `.obsidian/` config is tracked, and no vault content ships.
+
+- Add `docs/OBSIDIAN_COCKPIT.md` — public-safe overview: what the cockpit is and
+  is not, a core-plugin-only layout (placeholders), safe-use rules, and when to
+  use / not use it.
+- Add `chatgpt-project-files/12-obsidian-cockpit.md` — conductor-facing doctrine:
+  where it fits in the loop, the vault-privacy rule, the public/private boundary,
+  the handoff-card rule, the concept-risk-review rule, and placeholder-only note
+  skeletons.
+- Wire the layer into the existing doctrine: `00-README-project-files.md` (file
+  list + upload order), `07-safety-and-scrub.md` (vault scrub rules + release-
+  checklist line), `08-daily-workflow.md` (optional cockpit touch point at
+  close), `10-learn-and-update-loop.md` (which lessons may be mirrored privately
+  vs. graduated publicly), `11-command-templates.md` (four placeholder-only
+  cockpit card patterns + the `<COCKPIT_VAULT>` placeholder), and
+  `PROJECT-INSTRUCTIONS.md` (a compact cockpit block).
+- `.gitignore`: guard `.obsidian/` and a generic local `cockpit-vault/` so vault
+  config and notes can never be tracked from a working copy.
+- README: add a short, public-safe feature section for the optional layer.
+- Boundaries unchanged: vault is private, lives outside the repo; public docs are
+  authored fresh from blank (never copy-and-scrub); a name scan is paired with a
+  concept-risk review; no third-party plugin bodies are copied.
+
 ## v0.2.0 — pending PR (unreleased)
 
 The installable / exportable distributable kit. v0.1 was the manual project-file
@@ -45,6 +75,8 @@ reference-only (command names and rules, never bodies).
 
 ## Roadmap (not yet released)
 
-- **v0.3.0** — cross-platform fresh-clone validation and real user setup feedback.
+- **v0.3.0** — optional **Obsidian Cockpit Layer** (private-continuity doctrine and
+  templates), released after the alpha (`v0.3.0-alpha.1`) is scrub-clean and merged.
+- **v0.4.0** — cross-platform fresh-clone validation and real user setup feedback.
 - **v1.0.0** — stable public release once the install/update contract is proven by
   external clean-clone/user testing.

@@ -37,6 +37,7 @@ Use repo-relative placeholders and resolve them at runtime:
 | `<LEDGER_DIR>` | where session open/close artifacts are written (kept gitignored) |
 | `<LOCAL_LEARNINGS_DIR>` | where verified lessons are stored (kept gitignored) |
 | `<LOCAL_DREAM_DIR>` | where consolidated/connected notes live (kept gitignored) |
+| `<COCKPIT_VAULT>` | the optional private notes vault — lives **outside** `<REPO_ROOT>`, never tracked |
 
 A template that bakes in a real drive-letter root (a Windows-style absolute path)
 or a Unix home/user directory path is a **defect** — it breaks the moment the repo
@@ -174,6 +175,76 @@ RUN NOW: reorganize the notes. Output a one-line summary of what changed. Do not
 echo this instruction block.
 ```
 
+## Obsidian cockpit cards (note patterns, not commands)
+
+These are **note/card patterns for the optional cockpit layer**
+(`12-obsidian-cockpit.md`), not runnable slash commands. Nothing executes them —
+they are skeletons you fill in by hand inside your private `<COCKPIT_VAULT>`. They
+live **outside** any public repo, carry **placeholders only**, and must pass a
+concept-risk review before any card crosses into a coding-agent prompt or a public
+doc. Never bake a real path, name, remote, or raw memory/ledger/learning into one.
+
+### Obsidian handoff card — brief a coding agent
+
+```
+# Handoff card: <generic task>
+recipient:: <Claude Code | Codex | other coding agent>
+lane:: <green | red>
+
+Task: <what to build, generic terms>
+Scope: <in / out — files and boundaries, placeholders only>
+Constraints: <rules the change must respect; no real paths or private names>
+Verification: <exact command(s) that prove success>
+Required output: <what the agent returns>
+
+# Before sending: confirm no real paths/names/remotes, no raw memories/ledgers/
+# learnings, and that a concept-risk review passed. Send ONE card, not the vault.
+```
+
+### Obsidian standdown card — file a scrubbed session summary
+
+```
+# Standdown: <YYYY-MM-DD> — <generic stream name>
+lane:: <green | red>
+
+Shipped: <what landed, generic>
+In flight: <what is open>
+Percent done: <rough %>
+Risks: <what to watch>
+Next kickoff: <the one-line next move>
+
+# Mirror of the ledger, NOT a replacement. The session ledger in <LEDGER_DIR> is
+# the real record. Never paste a raw ledger here; write a scrubbed summary only.
+```
+
+### Obsidian decision card — record a decision and its rationale
+
+```
+# Decision: <generic title>
+date:: <YYYY-MM-DD>
+status:: <decided | revisit>
+
+Context: <what prompted it, generic>
+Choice: <what was chosen>
+Rationale: <the durable reasoning worth keeping>
+Relates-to:: [[<other decision or stream>]]
+```
+
+### Obsidian public-safe distillation card — graduate a lesson to the public kit
+
+```
+# Distillation: <generic lesson title>
+source:: <private vault note — NOT copied verbatim>
+
+Generic lesson: <the reusable rule, authored fresh from blank>
+Why it is safe: <no proprietary names, no private paths, no raw memories/ledgers>
+Where it belongs: <public kit | private only>
+
+# This card is the GATE between private and public. Author the public form from
+# blank — do NOT copy-and-scrub the private note. Run name scan + concept-risk
+# review before anything moves to a public artifact.
+```
+
 ## Smoke-test checklist (run after creating or editing a command)
 
 Run the command once on a real repo and confirm all of:
@@ -225,3 +296,4 @@ If a command restates its own instructions instead of running them, or stalls:
 - `10-learn-and-update-loop.md` — the learn loop in more detail.
 - `07-safety-and-scrub.md` — scrub boundaries (why no private paths ship).
 - `06-skills-and-routing.md` — pattern vs. bundled-skill routing.
+- `12-obsidian-cockpit.md` — the optional cockpit layer these card patterns serve.

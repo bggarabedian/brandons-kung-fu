@@ -93,12 +93,30 @@ This kit includes:
   scrub, RAG/CAG, QA & debug, daily workflow, and Codex & agent tooling.
 - **License** — `LICENSE` (MIT).
 
+## Optional: Obsidian Cockpit Layer
+
+An **optional, private** cockpit layer (in alpha as `v0.3.0-alpha.1`) wires a
+core-plugin-only notes vault into the doctrine as **private continuity** — a map
+of active workstreams, a record of decisions, and the staging area for scrubbed
+agent handoff cards. It is additive and installs nothing: no plugins are enabled,
+no `.obsidian/` config is tracked, and no vault content ships in this repo.
+
+It is **not** a source of truth (the repos are), **not** a source for public
+artifacts (those are authored fresh from blank), **not** an agent memory hose (a
+coding agent reads one deliberate, scrubbed handoff card, never the raw vault), and
+**not** a plugin bundle. The kit is fully usable without it. Doctrine:
+[`docs/OBSIDIAN_COCKPIT.md`](docs/OBSIDIAN_COCKPIT.md) and
+[`chatgpt-project-files/12-obsidian-cockpit.md`](chatgpt-project-files/12-obsidian-cockpit.md).
+
 ## What is planned next
 
 v0.2.0 adds the distributable tooling (CLI, manifest, ChatGPT/Claude setup,
 update, and sync) on top of the v0.1 doctrine files. Next:
 
-- **v0.3.0** — cross-platform fresh-clone validation and real user setup feedback.
+- **v0.3.0** — optional **Obsidian Cockpit Layer**: doctrine and templates for a
+  private notes vault as private continuity (shipping in alpha as
+  `v0.3.0-alpha.1`).
+- **v0.4.0** — cross-platform fresh-clone validation and real user setup feedback.
 - **v1.0.0** — stable public release once the install/update contract is proven by
   external clean-clone/user testing.
 

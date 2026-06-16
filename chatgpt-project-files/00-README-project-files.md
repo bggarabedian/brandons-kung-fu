@@ -51,9 +51,12 @@ Together they teach the LLM project to:
 - `11-command-templates.md` — generic `/standup` `/standdown` `/learn` `/dream`
   templates, the no-hardcoded-path rule, duplicate-command warning, and a
   command smoke-test checklist.
+- `12-obsidian-cockpit.md` — optional private **cockpit layer** doctrine (vault
+  privacy, handoff-card rule, public/private boundary, concept-risk review,
+  placeholder-only note skeletons). Pairs with `../docs/OBSIDIAN_COCKPIT.md`.
 - `PROJECT-INSTRUCTIONS.md` — copy-ready block for your LLM project's custom instructions.
 
-> Present today: `00`–`11` plus `PROJECT-INSTRUCTIONS.md` — all present.
+> Present today: `00`–`12` plus `PROJECT-INSTRUCTIONS.md` — all present.
 
 ## Upload order
 
@@ -76,6 +79,7 @@ Upload the spine first, then core, then advanced only when the work needs it.
 - `09-codex-and-agent-tooling.md`
 - `10-learn-and-update-loop.md`
 - `11-command-templates.md`
+- `12-obsidian-cockpit.md` (only while running the optional cockpit layer)
 
 > Tip: `PROJECT-INSTRUCTIONS.md` is **pasted into your project's custom
 > instructions**, not uploaded as a file.

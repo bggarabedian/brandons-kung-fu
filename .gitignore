@@ -25,5 +25,9 @@ build/
 # Runtime
 ledger/
 
+# Obsidian cockpit layer (private continuity; never tracked in this public repo)
+.obsidian/
+cockpit-vault/
+
 # OS
 .DS_Store

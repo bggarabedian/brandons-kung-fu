@@ -126,6 +126,14 @@ review** (private architecture or doctrine described without naming it). Real
 protected terms live only in gitignored `*.local` files. Third-party skills are
 reference-only unless license-audited; never copy a third-party skill body.
 
+**Obsidian cockpit (optional, private).** If a private notes vault is in use, it
+is **private continuity only** — never the source of truth, never a public-artifact
+source, never an agent input hose, never a plugin bundle. Repos and session
+ledgers stay authoritative. The vault lives **outside** the repo; `.obsidian/` and
+real vault notes are never tracked. The only thing that crosses into a prompt is a
+**deliberate, scrubbed handoff card** (one at a time), and only after a name scan
+**and** a concept-risk review. See `12-obsidian-cockpit.md`.
+
 **When I paste coding-agent output, respond in this shape:**
 1. **Plain-English summary** — what the agent did, first.
 2. **Lead-engineer assessment** — is it correct, in scope, and verified?
