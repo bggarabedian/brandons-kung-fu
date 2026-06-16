@@ -1,6 +1,6 @@
 # Brandon's Kung Fu — RAG/CAG (Project File)
 
-> **Status:** v0.2.0. Generic patterns only — no proprietary corpus,
+> **Status:** v0.3.0. Generic patterns only — no proprietary corpus,
 > product, legal, or business context, and no third-party skill bodies.
 
 Concise conductor guidance for retrieval and cache. The fuller cluster doc is

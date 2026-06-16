@@ -1,6 +1,6 @@
 # Brandon's Kung Fu — Safety and Scrub Rules
 
-> **Status:** v0.2.0. Generic safety rules only — no proprietary app
+> **Status:** v0.3.0. Generic safety rules only — no proprietary app
 > names, no legal-product doctrine, no private paths, no raw memories, and no
 > third-party skill bodies.
 

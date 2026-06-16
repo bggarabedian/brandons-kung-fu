@@ -1,6 +1,6 @@
 # Brandon's Kung Fu — Obsidian Cockpit Layer
 
-> **Release status: v0.3.0-alpha.1.** Optional, private, additive. This document
+> **Release status: v0.3.0.** Optional, private, additive. This document
 > is doctrine for an **optional** cockpit layer. It installs nothing, enables no
 > plugins, and ships no real vault. The repos and the session ledgers stay the
 > source of truth; Obsidian only organizes private continuity around them.

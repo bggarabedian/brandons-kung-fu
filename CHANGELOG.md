@@ -3,9 +3,9 @@
 All notable changes to Brandon's Kung Fu. This project is **pre-1.0**: the public
 install/update contract is not yet stable, and no GitHub release is tagged yet.
 
-## v0.3.0-alpha.1 — pending PR (unreleased)
+## v0.3.0
 
-Alpha of the optional **Obsidian Cockpit Layer**: doctrine and templates for a
+The optional **Obsidian Cockpit Layer**: doctrine and templates for a
 private, core-plugin-only notes vault used as **private continuity** — a workstream
 map, a decision record, and the staging area for scrubbed agent handoff cards. The
 repos and session ledgers stay the source of truth; the cockpit only organizes
@@ -28,7 +28,13 @@ installed or enabled, no `.obsidian/` config is tracked, and no vault content sh
   `PROJECT-INSTRUCTIONS.md` (a compact cockpit block).
 - `.gitignore`: guard `.obsidian/` and a generic local `cockpit-vault/` so vault
   config and notes can never be tracked from a working copy.
-- README: add a short, public-safe feature section for the optional layer.
+- Manifest: add `11-command-templates.md` and `12-obsidian-cockpit.md` to the
+  `kungfu.manifest.json` ChatGPT `upload_order` so `describe`, `export-chatgpt`,
+  and `setup-chatgpt` package the full optional/advanced set.
+- README: add a short, public-safe feature section for the optional layer, plus a
+  beginner-facing **"Why use this (for AI-agent coders)"** section — the risk-lane
+  / task-box / verify-with-commands / PR-first loop and what it improves (no
+  overclaim, no vendor endorsement).
 - Boundaries unchanged: vault is private, lives outside the repo; public docs are
   authored fresh from blank (never copy-and-scrub); a name scan is paired with a
   concept-risk review; no third-party plugin bodies are copied.
@@ -75,8 +81,6 @@ reference-only (command names and rules, never bodies).
 
 ## Roadmap (not yet released)
 
-- **v0.3.0** — optional **Obsidian Cockpit Layer** (private-continuity doctrine and
-  templates), released after the alpha (`v0.3.0-alpha.1`) is scrub-clean and merged.
 - **v0.4.0** — cross-platform fresh-clone validation and real user setup feedback.
 - **v1.0.0** — stable public release once the install/update contract is proven by
   external clean-clone/user testing.

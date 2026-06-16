@@ -1,6 +1,6 @@
 # Brandon's Kung Fu — Learn and Update Loop (Project File)
 
-> **Status:** v0.2.0. Generic learn/update doctrine — no proprietary content, no
+> **Status:** v0.3.0. Generic learn/update doctrine — no proprietary content, no
 > third-party skill bodies.
 
 How the conductor captures lessons and checks tool freshness without surprise

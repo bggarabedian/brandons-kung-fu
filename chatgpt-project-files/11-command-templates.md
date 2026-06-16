@@ -1,6 +1,6 @@
 # Brandon's Kung Fu — Command Templates (Project File)
 
-> **Status:** v0.2.0. Generic slash-command *templates and guidance* only — no
+> **Status:** v0.3.0. Generic slash-command *templates and guidance* only — no
 > proprietary names, no business goals, no private paths, no raw memories, and no
 > third-party skill bodies. Placeholders only. Vendor-neutral.
 
