@@ -1,6 +1,6 @@
 # Brandon's Kung Fu — Coding Standards
 
-> **Status:** v0.2.0. Generic coding standards only — no proprietary
+> **Status:** v0.3.0. Generic coding standards only — no proprietary
 > names, no legal-product doctrine, no business goals, no third-party skill
 > bodies. Vendor-neutral and framework-agnostic (choose tools by fit).
 

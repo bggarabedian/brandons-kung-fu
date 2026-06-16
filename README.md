@@ -2,7 +2,7 @@
 
 A disciplined operating kit for agentic software engineering.
 
-> **Status:** v0.2.0 (pre-1.0) — a **distributable** conductor kit for agentic
+> **Status:** v0.3.0 (pre-1.0) — a **distributable** conductor kit for agentic
 > software engineering: the doctrine project files **plus** a Python-stdlib CLI
 > for ChatGPT/Claude Code setup, export, update, and sync. v0.1 was the manual
 > project-file version. ChatGPT stays the conductor LLM; Claude Code is the local
@@ -163,7 +163,7 @@ This kit includes:
 
 ## Optional: Obsidian Cockpit Layer
 
-An **optional, private** cockpit layer (in alpha as `v0.3.0-alpha.1`) wires a
+An **optional, private** cockpit layer (new in `v0.3.0`) wires a
 core-plugin-only notes vault into the doctrine as **private continuity** — a map
 of active workstreams, a record of decisions, and the staging area for scrubbed
 agent handoff cards. It is additive and installs nothing: no plugins are enabled,
@@ -178,12 +178,10 @@ coding agent reads one deliberate, scrubbed handoff card, never the raw vault), 
 
 ## What is planned next
 
-v0.2.0 adds the distributable tooling (CLI, manifest, ChatGPT/Claude setup,
-update, and sync) on top of the v0.1 doctrine files. Next:
+`v0.3.0` adds the optional **Obsidian Cockpit Layer** (private-continuity doctrine
+and templates) on top of the v0.2.0 distributable tooling (CLI, manifest,
+ChatGPT/Claude setup, update, and sync) and the v0.1 doctrine files. Next:
 
-- **v0.3.0** — optional **Obsidian Cockpit Layer**: doctrine and templates for a
-  private notes vault as private continuity (shipping in alpha as
-  `v0.3.0-alpha.1`).
 - **v0.4.0** — cross-platform fresh-clone validation and real user setup feedback.
 - **v1.0.0** — stable public release once the install/update contract is proven by
   external clean-clone/user testing.

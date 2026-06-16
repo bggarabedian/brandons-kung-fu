@@ -1,6 +1,6 @@
 # Brandon's Kung Fu — Obsidian Cockpit Layer (Project File)
 
-> **Status: v0.3.0-alpha.1.** Optional / advanced. Conductor-facing doctrine for
+> **Status: v0.3.0.** Optional / advanced. Conductor-facing doctrine for
 > an **optional** private cockpit. Generic patterns and placeholder-only note
 > skeletons — no proprietary names, no business goals, no private paths, no raw
 > memories, no third-party plugin bodies. Upload this file only while cockpit work
