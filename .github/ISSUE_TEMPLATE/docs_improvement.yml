@@ -1,0 +1,39 @@
+name: Docs improvement
+description: A doc is unclear, wrong, stale, or missing something.
+title: "[docs]: "
+labels: ["documentation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Public-safe only: no private paths, names, or examples. Public docs are
+        authored fresh from blank — propose generic wording, not copied-and-scrubbed text.
+  - type: input
+    id: doc-file
+    attributes:
+      label: Doc / file
+      description: Which file (and section, if known)?
+      placeholder: "GETTING_STARTED.md — Step 2"
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What is unclear, wrong, stale, or missing?
+    validations:
+      required: true
+  - type: textarea
+    id: proposed-change
+    attributes:
+      label: Proposed change
+      description: How would you reword or restructure it? Generic wording only.
+    validations:
+      required: true
+  - type: checkboxes
+    id: public-safety
+    attributes:
+      label: Public-safety check
+      options:
+        - label: My proposed wording is generic and public-safe (no private paths, names, raw memories/ledgers, or third-party bodies).
+          required: true

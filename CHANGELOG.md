@@ -3,6 +3,34 @@
 All notable changes to Brandon's Kung Fu. This project is **pre-1.0**: the public
 install/update contract is not yet stable, and no GitHub release is tagged yet.
 
+## v0.3.1-alpha.2 — pending PR (unreleased)
+
+Public GitHub community-standards surface (no version bump; docs/governance only).
+
+- Add `CODE_OF_CONDUCT.md` — short, practical, authored fresh (no third-party body):
+  expected behavior, unacceptable behavior, enforcement, and public-channel
+  reporting.
+- Add `CONTRIBUTING.md` — who the repo is for, contribution shape (issues + scoped
+  PRs), the no-private-leakage / no-third-party-bodies / no-Co-Authored-By /
+  no-force-push / no-`--no-verify` rules, lanes in plain terms, and the verification
+  + scrub gates to run before opening a PR.
+- Add `SECURITY.md` — supported versions (`0.3.x`, pre-1.0 caveat), how to report a
+  vulnerability (prefer GitHub private reporting; otherwise a minimal public issue
+  asking for a private channel, no exploit details), and a no-SLA-overclaim response
+  note.
+- Add GitHub issue forms under `.github/ISSUE_TEMPLATE/` — `bug_report.yml`,
+  `docs_improvement.yml`, `setup_help.yml`, and `config.yml` (blank issues off;
+  contact links to the setup guide and contributing docs).
+- Add `.github/PULL_REQUEST_TEMPLATE.md` — lane + scope + files + verification +
+  scrub/concept-risk checklist (no private content, no `.obsidian/`, no third-party
+  bodies, no Co-Authored-By, no `--no-verify`, PR-only).
+- README: add a **Community standards** section linking the above.
+- Repository description set via `gh repo edit` (metadata only; topics, homepage,
+  and visibility unchanged).
+- Boundaries unchanged: public-safe, authored fresh from blank; no vault content, no
+  `.obsidian/`, no third-party policy/skill bodies, no vendor endorsement, no
+  overclaim.
+
 ## v0.3.1-alpha.1 — pending PR (unreleased)
 
 First-run onboarding so new users can activate the kit (no version bump; docs

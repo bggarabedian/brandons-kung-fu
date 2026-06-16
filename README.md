@@ -211,6 +211,22 @@ silently; `--apply` is required for writes.
 - Real protected terms live only in `*.local` files, which are gitignored and
   never committed.
 
+## Community standards
+
+Contributions are welcome — mostly clearer doctrine, better onboarding, and small
+tooling fixes. Before you open an issue or PR:
+
+- [`CONTRIBUTING.md`](CONTRIBUTING.md) — how to file issues, open scoped PRs, pick
+  a lane, and run the verification + scrub gates.
+- [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md) — be respectful, constructive, and
+  safety-minded.
+- [`SECURITY.md`](SECURITY.md) — how to report a vulnerability without leaking
+  secrets or exploit details.
+
+Issues use the templates under
+[`.github/ISSUE_TEMPLATE/`](.github/ISSUE_TEMPLATE/) (bug, docs, setup help); PRs
+use the [pull request template](.github/PULL_REQUEST_TEMPLATE.md).
+
 ## License
 
 MIT — see [`LICENSE`](LICENSE).
