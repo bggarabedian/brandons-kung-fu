@@ -3,6 +3,28 @@
 All notable changes to Brandon's Kung Fu. This project is **pre-1.0**: the public
 install/update contract is not yet stable, and no GitHub release is tagged yet.
 
+## v0.3.1-alpha.1 — pending PR (unreleased)
+
+First-run onboarding so new users can activate the kit (no version bump; docs
+only).
+
+- Add `GETTING_STARTED.md` — a GitHub-facing five-step setup guide: copy the
+  project instructions, upload the spine project files (keep always-on context
+  small), send the first prompts, connect the coding agent, run a smoke test, and
+  avoid the common mistakes.
+- Add `FIRST_PROMPT.md` — the canonical first ChatGPT conductor prompt (compact +
+  full): operate as conductor, lane-first, the five-part review shape, the handoff
+  labels, ceremony-matches-size, scrub + concept-risk, no repo-fact invention.
+- Add `docs/CLAUDE_CODE_FIRST_PROMPT.md` — the canonical first Claude Code prompt
+  (local implementation IC: verify repo truth first, no edits until scope is clear,
+  lane discipline, command evidence, no push/merge/force-push/install/--no-verify
+  without authorization, no Co-Authored-By, placeholders not private paths) plus a
+  read-only smoke-test prompt.
+- README: add a top-of-page **Start here** section linking the three onboarding
+  docs.
+- Boundaries unchanged: public-safe, placeholders only; no vault content, no
+  `.obsidian/`, no third-party skill bodies, no vendor endorsement, no overclaim.
+
 ## v0.3.0
 
 The optional **Obsidian Cockpit Layer**: doctrine and templates for a
