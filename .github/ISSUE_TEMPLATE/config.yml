@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: First-run setup guide
+    url: https://github.com/bggarabedian/brandons-kung-fu/blob/main/GETTING_STARTED.md
+    about: New here? Start with the five-step setup before opening an issue.
+  - name: Contributing guidelines
+    url: https://github.com/bggarabedian/brandons-kung-fu/blob/main/CONTRIBUTING.md
+    about: How to file issues and open scoped, public-safe PRs.

@@ -1,0 +1,63 @@
+name: Setup help
+description: You are stuck getting ChatGPT and/or Claude Code to follow the kit.
+title: "[setup]: "
+labels: ["question", "setup"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Walk us through where you are. Keep it public-safe: scrub any screenshots
+        or logs so they contain no secrets, private paths, or private names.
+  - type: dropdown
+    id: stuck-where
+    attributes:
+      label: Where are you stuck?
+      options:
+        - Step 1 — pasting project instructions
+        - Step 2 — uploading project files
+        - Step 3 — sending the first ChatGPT prompt
+        - Step 4 — connecting Claude Code
+        - Step 5 — smoke test
+        - Other / not sure
+    validations:
+      required: true
+  - type: textarea
+    id: chatgpt-step
+    attributes:
+      label: ChatGPT project setup step
+      description: What did you do in the ChatGPT Project (instructions pasted? files uploaded?), and what happened?
+  - type: textarea
+    id: claude-step
+    attributes:
+      label: Claude Code setup step
+      description: What prompt did you give Claude Code, and what did it do?
+  - type: textarea
+    id: files-uploaded
+    attributes:
+      label: Files uploaded
+      description: Which project files did you upload into the LLM project?
+      placeholder: "00, 01, 02, 03, 07 (spine)"
+  - type: dropdown
+    id: first-prompt
+    attributes:
+      label: First prompt used
+      description: Which first prompt did you send?
+      options:
+        - FIRST_PROMPT.md — compact
+        - FIRST_PROMPT.md — full
+        - My own prompt
+        - None yet
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Screenshots / logs (private info removed)
+      description: Optional. Remove any secrets, private paths, or private names first.
+  - type: checkboxes
+    id: scrub
+    attributes:
+      label: Scrub confirmation
+      options:
+        - label: Anything I pasted or attached has private info removed.
+          required: true
