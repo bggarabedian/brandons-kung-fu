@@ -85,6 +85,13 @@ Keep changes small and reviewable.
   keeping.
 - Consolidate memory (a `/dream` pattern): tidy and connect notes so they stay
   findable.
+- **Optional — mirror to the cockpit.** If you run the optional cockpit layer
+  (`12-obsidian-cockpit.md`), you may file a short, **scrubbed** summary of the
+  session into your private vault (a stream or decision note) *after* the ledger
+  is written. The ledger stays the real record; the cockpit only files a
+  human-readable view. Never copy a raw ledger or raw learnings into it, and never
+  treat the vault as an automatic source during public work — a coding agent reads
+  a deliberate handoff card, never the raw vault.
 - Hand off: leave the next session a one-line kickoff and a clean repo state.
 
 ## Reminders
@@ -100,3 +107,4 @@ Keep changes small and reviewable.
 - `01-conductor-doctrine.md` — lanes, HALT, verify.
 - `03-driving-coding-agents.md` — the task template and prompt patterns.
 - `07-safety-and-scrub.md` — public-operation and scrub boundaries.
+- `12-obsidian-cockpit.md` — the optional private cockpit layer and where it fits.

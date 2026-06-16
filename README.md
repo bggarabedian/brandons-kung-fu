@@ -19,6 +19,74 @@ CLI: `scripts/kungfu.py` (Python standard library only) — `describe`, `doctor`
 `doctor-chatgpt`. Dry-run by default; writes need `--apply`. See **Setup tooling**
 below, plus [`INSTALL.md`](INSTALL.md) and [`UPDATE.md`](UPDATE.md).
 
+## Why use this (for AI-agent coders)
+
+Most AI coding failures don't happen because the model typed badly. They happen
+because nobody gave the model a safe operating box — so the agent quietly makes
+repo, architecture, security, or public-posture decisions that no one reviewed.
+
+Brandon's Kung Fu is that box. It is not a magic prompt pack, and it does not
+guarantee correct code. It is an operating discipline for using AI coding agents
+(Claude Code, Codex CLI, or any other) so they implement *inside* a defined box
+instead of running the whole show. It turns unstructured "YOLO vibe coding" into a
+controlled loop: pick the risk lane, define the task box, let the agent build
+inside it, verify with real commands, stop on danger, and land through a PR.
+
+The payoff is not magic — it is **mistake compression**: fewer accidental scope
+jumps, fewer unverified claims, cleaner handoffs, safer public docs, and less
+wasted context from dragging giant transcripts through every task. It does **not**
+replace engineering judgment.
+
+> **Without Kung Fu:** "Claude, fix this repo" can drift into unbounded YOLO mode.
+> **With Kung Fu:** "Here is the lane, scope, constraints, files, verification
+> gate, and required output" keeps the agent inside guardrails.
+
+### The flow, in plain language
+
+1. **Pick the lane.** **Green** = small, reversible (proceed). **Red** =
+   architecture, schemas, hooks, security, migrations, public posture, or anything
+   irreversible (get approval, go slow). **Inspection-only** = read, report, plan,
+   no changes.
+2. **Write the task box.** Task · scope · constraints · steps · verification ·
+   required output. The agent builds to this, not to a vibe.
+3. **Let the agent build inside the box.** It implements; you stay the conductor.
+4. **Verify before you believe it.** Run the real gates — tests, lint, format,
+   type checks, hooks, doctor scripts, or whatever the repo actually uses.
+   "Looks right" is not accepted as done.
+5. **Stop on danger.** Failed gate, a surprise in the diff, scope drift, a
+   security issue, or public-leak risk → halt and surface it, don't push through.
+6. **Land through PRs.** No direct pushes to main, no force-push, no bypassing
+   hooks.
+7. **Close the loop.** Standdown, save context, and capture a lesson only when
+   there's a verified, reusable one — not after every task.
+
+### What it improves
+
+- **Less YOLO coding** — the agent gets a task box (task, scope, constraints,
+  steps, verification, required output), not a vague "go fix it."
+- **Better risk control** — Green / Red / Inspection-only lanes decide how much
+  process a change earns before anyone touches the repo.
+- **Fewer accidental repo messes** — no direct main pushes by default, no
+  force-push without explicit approval, no bypassing hooks, PR-first landing.
+- **Verification before belief** — the loop requires command evidence (tests,
+  lint, format, type checks, hooks, doctor scripts); "looks right" is not "done."
+- **Lower context/token waste** — a lightweight preflight for bounded work, full
+  session ceremony only for real multi-step work, `/compact` after major
+  boundaries, `/clear` when switching workstreams, and standdown / context-save /
+  optional cockpit notes to carry continuity. It helps control token burn and
+  keeps sessions smaller without dragging the whole transcript forward.
+- **Better handoffs** — the next agent or session gets current truth, not
+  scrollback archaeology: what changed, what passed, what's blocked, what's next.
+- **Safer public work** — name scans plus a concept-risk review, public docs
+  written from blank, and no raw memories, ledgers, private paths, or private repo
+  facts leaking into public artifacts.
+- **A real learning loop** — capture a lesson only when it's verified and
+  reusable, consolidate when it's useful (not as ritual), and keep private
+  continuity in the optional cockpit without it becoming a source for public docs.
+
+New to agentic coding? Start with small Green-Lane tasks and let the lane rules
+keep the dangerous operations behind an approval gate.
+
 ## Quick start
 
 1. **Clone** the repo.
@@ -93,12 +161,30 @@ This kit includes:
   scrub, RAG/CAG, QA & debug, daily workflow, and Codex & agent tooling.
 - **License** — `LICENSE` (MIT).
 
+## Optional: Obsidian Cockpit Layer
+
+An **optional, private** cockpit layer (in alpha as `v0.3.0-alpha.1`) wires a
+core-plugin-only notes vault into the doctrine as **private continuity** — a map
+of active workstreams, a record of decisions, and the staging area for scrubbed
+agent handoff cards. It is additive and installs nothing: no plugins are enabled,
+no `.obsidian/` config is tracked, and no vault content ships in this repo.
+
+It is **not** a source of truth (the repos are), **not** a source for public
+artifacts (those are authored fresh from blank), **not** an agent memory hose (a
+coding agent reads one deliberate, scrubbed handoff card, never the raw vault), and
+**not** a plugin bundle. The kit is fully usable without it. Doctrine:
+[`docs/OBSIDIAN_COCKPIT.md`](docs/OBSIDIAN_COCKPIT.md) and
+[`chatgpt-project-files/12-obsidian-cockpit.md`](chatgpt-project-files/12-obsidian-cockpit.md).
+
 ## What is planned next
 
 v0.2.0 adds the distributable tooling (CLI, manifest, ChatGPT/Claude setup,
 update, and sync) on top of the v0.1 doctrine files. Next:
 
-- **v0.3.0** — cross-platform fresh-clone validation and real user setup feedback.
+- **v0.3.0** — optional **Obsidian Cockpit Layer**: doctrine and templates for a
+  private notes vault as private continuity (shipping in alpha as
+  `v0.3.0-alpha.1`).
+- **v0.4.0** — cross-platform fresh-clone validation and real user setup feedback.
 - **v1.0.0** — stable public release once the install/update contract is proven by
   external clean-clone/user testing.
 
