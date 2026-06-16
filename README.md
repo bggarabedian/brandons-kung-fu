@@ -8,6 +8,18 @@ A disciplined operating kit for agentic software engineering.
 > project-file version. ChatGPT stays the conductor LLM; Claude Code is the local
 > implementation IC; GStack is a reference-only operating layer.
 
+## Start here
+
+New to the kit? Follow the first-run path, then send the activation prompts:
+
+1. **[`GETTING_STARTED.md`](GETTING_STARTED.md)** — the five-step setup: paste the
+   project instructions, upload the spine files, send the first prompts, connect
+   your coding agent, and run a smoke test.
+2. **[`FIRST_PROMPT.md`](FIRST_PROMPT.md)** — the canonical first message for your
+   ChatGPT conductor (compact + full).
+3. **[`docs/CLAUDE_CODE_FIRST_PROMPT.md`](docs/CLAUDE_CODE_FIRST_PROMPT.md)** — the
+   canonical first message for Claude Code as the local implementation IC.
+
 ## What this is
 
 Brandon's Kung Fu (`brandons-kung-fu`) is a portable kit of disciplined workflow
