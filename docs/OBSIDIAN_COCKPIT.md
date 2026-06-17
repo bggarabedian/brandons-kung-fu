@@ -94,6 +94,23 @@ None of these require network access, and none of them belong in a public repo.
 6. **The repo and the ledger win.** When the cockpit disagrees with committed or
    ledgered truth, trust the repo and the ledger, and fix the note.
 
+## Checking your setup
+
+`cockpit doctor` is a **read-only** safety check (added in `v0.3.2-alpha.1`). It
+confirms a private vault is wired correctly and never reads a note body:
+
+```
+python scripts/kungfu.py cockpit doctor
+```
+
+It needs a local `cockpit.local.json` — copy `cockpit.local.example.json`, set your
+vault path, and keep it local (the real config is git-ignored). The check verifies
+the vault lives **outside** this repo and any other git work tree, the expected
+folders exist, and that neither `.obsidian/` nor the local config nor any vault
+note is tracked by git. It reports problems and exits non-zero; a clean setup exits
+zero. It makes no changes and reads no note content. Until you create the local
+config it stops and tells you to copy the example.
+
 ## When to use / when not to use
 
 **Use it when:**
