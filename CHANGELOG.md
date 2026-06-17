@@ -3,6 +3,31 @@
 All notable changes to Brandon's Kung Fu. This project is **pre-1.0**: the public
 install/update contract is not yet stable, and no GitHub release is tagged yet.
 
+## v0.3.2-alpha.1 — pending PR (unreleased)
+
+The first **Cockpit Bridge** slice: a read-only `cockpit doctor` check that
+verifies a private vault is wired safely, without ever reading a note body. The
+example config and the check are additive; write commands come later (no version
+bump — alpha, code-additive only).
+
+- Add `cockpit doctor` (read-only) to `scripts/kungfu.py` — checks that a local
+  `cockpit.local.json` resolves, the vault lives **outside** this repo and outside
+  any other git work tree, the required folders exist, and that neither
+  `.obsidian/` nor the local config nor any vault note is tracked by git. It never
+  reads a note body; it reports problems and exits non-zero, clean exits zero, and
+  hard-fails (exit 2) when no usable config is present.
+- Add `cockpit.local.example.json` — an inert template with a `<placeholder>`
+  vault path. The real `cockpit.local.json` is git-ignored, so a private vault
+  path is never committed.
+- `.gitignore`: ignore `cockpit.local.json`, keep the example tracked.
+- Add stdlib `unittest` coverage (config loader + doctor safety checks, including
+  a guard that a vault note body is never read or printed) — no third-party test
+  dependencies.
+- No write commands yet: `cockpit init` / `mirror` / `handoff` / `open` are not in
+  this slice. `cockpit --help` exposes `doctor` only.
+- Boundaries unchanged: nothing is installed, no plugin is enabled, no `.obsidian/`
+  config is tracked, and no vault content ships.
+
 ## v0.3.1-alpha.2 — pending PR (unreleased)
 
 Public GitHub community-standards surface (no version bump; docs/governance only).
