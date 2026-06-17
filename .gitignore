@@ -4,6 +4,9 @@ denylist.local.txt
 skills.sources.local.json
 # but DO track the committed example template:
 !skills.sources.local.example.json
+# Cockpit bridge: the local config holds a private vault path; the example is tracked:
+cockpit.local.json
+!cockpit.local.example.json
 .env
 
 # Python

@@ -751,6 +751,149 @@ def cmd_skills(args, m: dict) -> int:
     return routes[args.skills_cmd](args, m)
 
 
+# ----------------------------------------------------------------------------- cockpit (Obsidian bridge)
+# Slice 1: a READ-ONLY `cockpit doctor` only. It verifies the local cockpit config
+# and the vault's safety posture (vault lives OUTSIDE any repo, nothing private is
+# tracked). It writes nothing, enables no plugin, and never reads a vault note body
+# — it inspects folder/file existence and git tracking status only.
+COCKPIT_CONFIG_NAME = "cockpit.local.json"
+COCKPIT_EXAMPLE_NAME = "cockpit.local.example.json"
+COCKPIT_REQUIRED_FOLDERS = ("streams", "decisions", "handoff", "daily", "maps", "templates")
+
+
+def _git_in(root: Path, *args: str) -> subprocess.CompletedProcess:
+    """git invoked with an explicit -C <root> (so the doctor is testable on temp repos)."""
+    return subprocess.run(["git", "-C", str(root), *args], capture_output=True, text=True)
+
+
+def _is_inside(child: Path, parent: Path) -> bool:
+    try:
+        child.resolve().relative_to(parent.resolve())
+        return True
+    except (ValueError, OSError):
+        return False
+
+
+def _nearest_existing(path: Path) -> Path:
+    """The closest existing ancestor of path (path itself if it exists)."""
+    p = path.resolve()
+    while not p.exists() and p != p.parent:
+        p = p.parent
+    return p
+
+
+def _git_toplevel(path: Path) -> "str | None":
+    """The git work-tree root containing path, or None if path is not inside a repo."""
+    r = subprocess.run(
+        ["git", "-C", str(_nearest_existing(path)), "rev-parse", "--show-toplevel"],
+        capture_output=True, text=True,
+    )
+    if r.returncode != 0:
+        return None
+    return r.stdout.strip() or None
+
+
+def _iter_str_values(obj, prefix: str = ""):
+    """Yield (dotted-key, value) for every string leaf in a JSON-ish object."""
+    if isinstance(obj, dict):
+        for k, v in obj.items():
+            yield from _iter_str_values(v, f"{prefix}{k}.")
+    elif isinstance(obj, list):
+        for i, v in enumerate(obj):
+            yield from _iter_str_values(v, f"{prefix}{i}.")
+    elif isinstance(obj, str):
+        yield prefix.rstrip("."), obj
+
+
+def _cockpit_doctor(root: Path) -> int:
+    """Read-only check of the cockpit bridge config + vault safety.
+
+    Hard-fails (exit 2 via fail()) when the config cannot be resolved at all;
+    returns 1 for any safety problem; returns 0 when clean. Reads folder/file
+    existence and git tracking status only — never opens a vault note body.
+    """
+    config_path = root / COCKPIT_CONFIG_NAME
+    example_path = root / COCKPIT_EXAMPLE_NAME
+    print("[cockpit doctor] verifying cockpit bridge config + vault safety (read-only)")
+
+    # --- hard load: these block every other check ---
+    if not config_path.exists():
+        fail(f"{COCKPIT_CONFIG_NAME} not found — copy {COCKPIT_EXAMPLE_NAME} to "
+             f"{COCKPIT_CONFIG_NAME} and set a real vault path (the local file is gitignored).")
+    try:
+        cfg = json.loads(config_path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as e:
+        fail(f"{COCKPIT_CONFIG_NAME} is not valid JSON: {e}")
+    if not isinstance(cfg, dict):
+        fail(f"{COCKPIT_CONFIG_NAME} must be a JSON object.")
+    vault_raw = str(cfg.get("cockpit_vault", "")).strip()
+    if not vault_raw:
+        fail(f"{COCKPIT_CONFIG_NAME} is missing the required key: cockpit_vault.")
+    if "<" in vault_raw:
+        fail(f"cockpit_vault is still a placeholder in {COCKPIT_CONFIG_NAME} "
+             "(set a real absolute path to a vault OUTSIDE this repo).")
+
+    vault = Path(vault_raw).expanduser()
+    folders = cfg.get("folders") or {}
+    if not isinstance(folders, dict):
+        fail(f"{COCKPIT_CONFIG_NAME} 'folders' must be a JSON object.")
+
+    # --- soft checks: collect, then report ---
+    problems: list[str] = []
+
+    # leftover placeholders anywhere in the resolved config
+    for key, val in _iter_str_values(cfg):
+        if "<" in val:
+            problems.append(f"leftover placeholder in config ({key}): {val!r}")
+
+    # the local config must never be tracked (it holds a private vault path)
+    if _git_in(root, "ls-files", "--", COCKPIT_CONFIG_NAME).stdout.strip():
+        problems.append(f"{COCKPIT_CONFIG_NAME} is tracked by git — it must stay gitignored.")
+
+    # the vault must live OUTSIDE the repo root ...
+    if _is_inside(vault, root):
+        problems.append(f"cockpit_vault resolves INSIDE the repo root ({root}) — it must live outside any repo.")
+
+    # ... and outside ANY git work tree
+    top = _git_toplevel(vault)
+    if top:
+        problems.append(f"cockpit_vault is inside a git work tree ({top}) — a vault must never be inside a repo.")
+
+    # nothing private may be tracked in THIS repo
+    tracked = _git_in(root, "ls-files").stdout.splitlines()
+    if any(".obsidian" in t for t in tracked):
+        problems.append("an .obsidian/ path is tracked in this repo — remove it before any push.")
+    leaked = [t for t in tracked if _is_inside(root / t, vault)]
+    if leaked:
+        problems.append(f"{len(leaked)} vault file(s) appear tracked in this repo — vault content is never tracked.")
+
+    # required folders must exist (existence only — never read note contents)
+    missing = [name for name in COCKPIT_REQUIRED_FOLDERS
+               if not (vault / folders.get(name, name)).is_dir()]
+    if missing:
+        problems.append(f"missing vault folder(s): {', '.join(missing)} (expected under {vault}).")
+
+    if problems:
+        for p in problems:
+            print(f"  FAIL: {p}")
+        print(f"[cockpit doctor] {len(problems)} problem(s). No changes made.")
+        return 1
+    print(f"[cockpit doctor] OK — config valid, vault outside any repo, no .obsidian/ or vault files "
+          f"tracked, all {len(COCKPIT_REQUIRED_FOLDERS)} folders present. No changes made.")
+    return 0
+
+
+def cmd_cockpit_doctor(_args, _m: dict) -> int:
+    return _cockpit_doctor(ROOT)
+
+
+def cmd_cockpit(args, m: dict) -> int:
+    routes = {
+        "doctor": cmd_cockpit_doctor,
+    }
+    return routes[args.cockpit_cmd](args, m)
+
+
 # ----------------------------------------------------------------------------- main
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(prog="kungfu", description="Brandon's Kung Fu kit automation (dry-run by default).")
@@ -794,6 +937,11 @@ def build_parser() -> argparse.ArgumentParser:
                      help="back up + overwrite an existing local manifest")
     sk_apply.append(eli)
 
+    # --- optional Obsidian cockpit bridge (Slice 1: read-only doctor only) ---
+    ck = sub.add_parser("cockpit", help="optional private Obsidian cockpit bridge (read-only doctor)")
+    cksub = ck.add_subparsers(dest="cockpit_cmd", required=True)
+    cksub.add_parser("doctor", help="verify cockpit config + vault safety (read-only; no writes)")
+
     # tolerate a bare --dry-run flag for any apply-bearing subcommand (no-op; dry-run is default)
     for sp in (ec, sc, ic, up, *sk_apply):
         sp.add_argument("--dry-run", action="store_true", help="explicit no-op; dry-run is the default")
@@ -819,6 +967,7 @@ def main(argv: list[str]) -> int:
         "update": cmd_update,
         "sync": cmd_sync,
         "skills": cmd_skills,
+        "cockpit": cmd_cockpit,
     }
     return dispatch[args.cmd](args, m)
 
