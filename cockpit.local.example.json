@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "cockpit_vault": "<ABSOLUTE path to a private vault OUTSIDE this repo>",
+  "folders": {
+    "streams": "streams",
+    "decisions": "decisions",
+    "handoff": "handoff",
+    "daily": "daily",
+    "maps": "maps",
+    "templates": "templates"
+  }
+}
