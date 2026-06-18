@@ -3,6 +3,32 @@
 All notable changes to Brandon's Kung Fu. This project is **pre-1.0**: the public
 install/update contract is not yet stable, and no GitHub release is tagged yet.
 
+## v0.3.3-alpha.1 — pending PR (unreleased)
+
+The second **Cockpit Bridge** slice: `cockpit init`, the first vault-*write*
+command. It creates the private vault's folder scaffold and nothing else (no
+version bump — alpha, code-additive only).
+
+- Add `cockpit init` to `scripts/kungfu.py` — creates the required cockpit
+  folders (`streams/`, `decisions/`, `handoff/`, `daily/`, `maps/`, `templates/`)
+  inside an **existing** private vault. **Dry-run by default** (`WOULD-CREATE` /
+  `EXISTS`); `--apply` performs the creation (`CREATED` / `EXISTS`). Idempotent —
+  re-running reports `EXISTS` and changes nothing.
+- Reuse the same outside-any-repo safety gate as `cockpit doctor`: the doctor's
+  config loader and safety checks are refactored into a shared pair so the two
+  commands cannot drift. `init` refuses (and writes nothing) when the config is
+  missing/invalid/placeholder, when the vault root does not exist, when the vault
+  is inside this repo or any other git work tree, when the local config is
+  tracked, or when a non-directory squats a folder path.
+- Hard boundaries: never creates or modifies `cockpit.local.json`, never creates
+  the vault root, never touches `.obsidian/`, never enables a plugin, never reads
+  or writes a vault note body. After `--apply` it recommends `cockpit doctor`
+  (it does not auto-run it).
+- Add stdlib `unittest` coverage (12 `init` tests: dry-run, apply, idempotency,
+  every refusal path, no-`.obsidian/`, and a note-body-never-read guard) — no
+  third-party test dependencies.
+- No VERSION or `kungfu.manifest.json` bump.
+
 ## v0.3.2-alpha.1 — merged via PR #14 (no version bump)
 
 The first **Cockpit Bridge** slice: a read-only `cockpit doctor` check that

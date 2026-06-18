@@ -188,6 +188,10 @@ coding agent reads one deliberate, scrubbed handoff card, never the raw vault), 
 [`docs/OBSIDIAN_COCKPIT.md`](docs/OBSIDIAN_COCKPIT.md) and
 [`chatgpt-project-files/12-obsidian-cockpit.md`](chatgpt-project-files/12-obsidian-cockpit.md).
 
+Tooling (both refuse to touch anything inside a repo): `python scripts/kungfu.py
+cockpit init` creates the vault folder scaffold (dry-run by default), and `python
+scripts/kungfu.py cockpit doctor` is a read-only safety check.
+
 ## What is planned next
 
 `v0.3.0` adds the optional **Obsidian Cockpit Layer** (private-continuity doctrine

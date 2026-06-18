@@ -66,3 +66,18 @@ def run_doctor(repo: Path):
         except SystemExit as e:
             code = e.code if isinstance(e.code, int) else 1
     return code, out.getvalue(), err.getvalue()
+
+
+def run_init(repo: Path, apply: bool = False):
+    """Run _cockpit_init(repo, apply=...); return (exit_code, stdout, stderr).
+
+    Same SystemExit normalization as run_doctor so a hard-fail (exit 2) is
+    testable alongside a soft (return 1) safety failure.
+    """
+    out, err = io.StringIO(), io.StringIO()
+    with contextlib.redirect_stdout(out), contextlib.redirect_stderr(err):
+        try:
+            code = kungfu._cockpit_init(repo, apply=apply)
+        except SystemExit as e:
+            code = e.code if isinstance(e.code, int) else 1
+    return code, out.getvalue(), err.getvalue()

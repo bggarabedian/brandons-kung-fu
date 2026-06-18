@@ -24,6 +24,8 @@ Usage:
   python scripts/kungfu.py install-claude --target <path> [--apply] [--allow-backup]
   python scripts/kungfu.py update [--apply]
   python scripts/kungfu.py sync
+  python scripts/kungfu.py cockpit doctor
+  python scripts/kungfu.py cockpit init [--apply]
 """
 from __future__ import annotations
 
@@ -805,18 +807,15 @@ def _iter_str_values(obj, prefix: str = ""):
         yield prefix.rstrip("."), obj
 
 
-def _cockpit_doctor(root: Path) -> int:
-    """Read-only check of the cockpit bridge config + vault safety.
+def _cockpit_load_config(root: Path) -> "tuple[dict, Path, dict]":
+    """Resolve the local cockpit config. Hard-fails (exit 2 via fail()) when the
+    config cannot be resolved at all. Returns (cfg, vault, folders).
 
-    Hard-fails (exit 2 via fail()) when the config cannot be resolved at all;
-    returns 1 for any safety problem; returns 0 when clean. Reads folder/file
-    existence and git tracking status only — never opens a vault note body.
+    Shared by `cockpit doctor` and `cockpit init` so the two can never drift on
+    what counts as an unusable config. Reads the local config file only; never
+    creates it, never reads a vault note body.
     """
     config_path = root / COCKPIT_CONFIG_NAME
-    example_path = root / COCKPIT_EXAMPLE_NAME
-    print("[cockpit doctor] verifying cockpit bridge config + vault safety (read-only)")
-
-    # --- hard load: these block every other check ---
     if not config_path.exists():
         fail(f"{COCKPIT_CONFIG_NAME} not found — copy {COCKPIT_EXAMPLE_NAME} to "
              f"{COCKPIT_CONFIG_NAME} and set a real vault path (the local file is gitignored).")
@@ -832,13 +831,22 @@ def _cockpit_doctor(root: Path) -> int:
     if "<" in vault_raw:
         fail(f"cockpit_vault is still a placeholder in {COCKPIT_CONFIG_NAME} "
              "(set a real absolute path to a vault OUTSIDE this repo).")
-
     vault = Path(vault_raw).expanduser()
     folders = cfg.get("folders") or {}
     if not isinstance(folders, dict):
         fail(f"{COCKPIT_CONFIG_NAME} 'folders' must be a JSON object.")
+    return cfg, vault, folders
 
-    # --- soft checks: collect, then report ---
+
+def _cockpit_safety_problems(root: Path, cfg: dict, vault: Path, folders: dict,
+                             *, require_folders: bool) -> "list[str]":
+    """The cockpit-bridge safety gate, shared by doctor and init.
+
+    Returns a (possibly empty) list of safety problems. Reads folder/file
+    existence and git tracking status only — never opens a vault note body.
+    `require_folders` is True for doctor (the folders must already exist) and
+    False for init (whose whole job is to create them).
+    """
     problems: list[str] = []
 
     # leftover placeholders anywhere in the resolved config
@@ -868,11 +876,25 @@ def _cockpit_doctor(root: Path) -> int:
         problems.append(f"{len(leaked)} vault file(s) appear tracked in this repo — vault content is never tracked.")
 
     # required folders must exist (existence only — never read note contents)
-    missing = [name for name in COCKPIT_REQUIRED_FOLDERS
-               if not (vault / folders.get(name, name)).is_dir()]
-    if missing:
-        problems.append(f"missing vault folder(s): {', '.join(missing)} (expected under {vault}).")
+    if require_folders:
+        missing = [name for name in COCKPIT_REQUIRED_FOLDERS
+                   if not (vault / folders.get(name, name)).is_dir()]
+        if missing:
+            problems.append(f"missing vault folder(s): {', '.join(missing)} (expected under {vault}).")
 
+    return problems
+
+
+def _cockpit_doctor(root: Path) -> int:
+    """Read-only check of the cockpit bridge config + vault safety.
+
+    Hard-fails (exit 2 via fail()) when the config cannot be resolved at all;
+    returns 1 for any safety problem; returns 0 when clean. Reads folder/file
+    existence and git tracking status only — never opens a vault note body.
+    """
+    print("[cockpit doctor] verifying cockpit bridge config + vault safety (read-only)")
+    cfg, vault, folders = _cockpit_load_config(root)
+    problems = _cockpit_safety_problems(root, cfg, vault, folders, require_folders=True)
     if problems:
         for p in problems:
             print(f"  FAIL: {p}")
@@ -883,13 +905,86 @@ def _cockpit_doctor(root: Path) -> int:
     return 0
 
 
+def _cockpit_init(root: Path, *, apply: bool) -> int:
+    """Create the vault folder scaffold (the 6 COCKPIT_REQUIRED_FOLDERS).
+
+    Dry-run by default; --apply performs the folder creation. Reuses the same
+    outside-any-repo safety gate as `cockpit doctor` (minus the folders-exist
+    check, which is this command's whole job). It NEVER:
+      - creates or modifies cockpit.local.json,
+      - creates the vault root (a missing root is a hard error),
+      - writes inside the repo or any git work tree,
+      - touches .obsidian/ or enables any plugin,
+      - reads or writes a vault note body (folder existence + mkdir only).
+
+    Exit codes: 2 = hard error (unusable config, missing vault root, or a
+    non-directory squatting a folder path); 1 = safety-gate problem; 0 = clean
+    (dry-run or apply).
+    """
+    mode = "" if apply else "   (dry-run; no writes)"
+    print(f"[cockpit init] create vault folder scaffold{mode}")
+    cfg, vault, folders = _cockpit_load_config(root)
+
+    # the vault ROOT must already exist — init never creates a vault from nothing
+    # (prevents materializing a whole tree at a mistyped path).
+    if not vault.exists():
+        fail(f"cockpit_vault does not exist: {vault} — create the vault first; "
+             "init only scaffolds folders inside an existing vault, never the vault root.")
+    if not vault.is_dir():
+        fail(f"cockpit_vault is not a directory: {vault}")
+
+    # same safety gate as doctor, without requiring the folders to exist yet
+    problems = _cockpit_safety_problems(root, cfg, vault, folders, require_folders=False)
+    if problems:
+        for p in problems:
+            print(f"  FAIL: {p}")
+        print(f"[cockpit init] {len(problems)} safety problem(s). No changes made.")
+        return 1
+
+    targets = [(name, vault / folders.get(name, name)) for name in COCKPIT_REQUIRED_FOLDERS]
+
+    # pre-scan: refuse if anything non-directory squats a folder path, BEFORE any
+    # write — so a clobber risk never causes a partial scaffold.
+    for name, target in targets:
+        if target.exists() and not target.is_dir():
+            fail(f"refusing: a non-directory already exists where folder '{name}' is expected: {target} "
+                 "(remove or move it; init never overwrites).")
+
+    created = existed = would = 0
+    for name, target in targets:
+        if target.is_dir():
+            print(f"  EXISTS        {name}")
+            existed += 1
+        elif apply:
+            target.mkdir(parents=True, exist_ok=True)
+            print(f"  CREATED       {name}")
+            created += 1
+        else:
+            print(f"  WOULD-CREATE  {name}")
+            would += 1
+
+    if apply:
+        print(f"[cockpit init] done — created={created} existed={existed}. "
+              "No config written, no vault root created, no .obsidian/ touched, no note read.")
+        print("[cockpit init] next: run `python scripts/kungfu.py cockpit doctor` to verify the setup.")
+    else:
+        print(f"[cockpit init] dry-run — would-create={would} existed={existed}. No changes made. "
+              "Re-run with --apply to create the folder(s).")
+    return 0
+
+
 def cmd_cockpit_doctor(_args, _m: dict) -> int:
     return _cockpit_doctor(ROOT)
+
+
+def cmd_cockpit_init(args, _m: dict) -> int:
+    return _cockpit_init(ROOT, apply=args.apply)
 
 
 def cmd_cockpit(args, m: dict) -> int:
     routes = {
         "doctor": cmd_cockpit_doctor,
+        "init": cmd_cockpit_init,
     }
     return routes[args.cockpit_cmd](args, m)
 
@@ -937,13 +1032,15 @@ def build_parser() -> argparse.ArgumentParser:
                      help="back up + overwrite an existing local manifest")
     sk_apply.append(eli)
 
-    # --- optional Obsidian cockpit bridge (Slice 1: read-only doctor only) ---
-    ck = sub.add_parser("cockpit", help="optional private Obsidian cockpit bridge (read-only doctor)")
+    # --- optional Obsidian cockpit bridge (doctor: read-only; init: folder scaffold) ---
+    ck = sub.add_parser("cockpit", help="optional private Obsidian cockpit bridge (doctor + init)")
     cksub = ck.add_subparsers(dest="cockpit_cmd", required=True)
     cksub.add_parser("doctor", help="verify cockpit config + vault safety (read-only; no writes)")
+    ci = cksub.add_parser("init", help="create the vault folder scaffold (dry-run default; never creates the vault root)")
+    ci.add_argument("--apply", action="store_true", help="actually create the missing folder(s)")
 
     # tolerate a bare --dry-run flag for any apply-bearing subcommand (no-op; dry-run is default)
-    for sp in (ec, sc, ic, up, *sk_apply):
+    for sp in (ec, sc, ic, up, ci, *sk_apply):
         sp.add_argument("--dry-run", action="store_true", help="explicit no-op; dry-run is the default")
     return p
 

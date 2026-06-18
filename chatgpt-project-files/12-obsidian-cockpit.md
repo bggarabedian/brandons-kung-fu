@@ -145,6 +145,18 @@ Required output: <what the agent returns>
 Before any handoff card is used: confirm no real paths, no private names, no raw
 memories/ledgers/learnings, and that a concept-risk review passed.
 
+## Creating the vault folders (optional)
+
+A small optional helper, `cockpit init`, can create the vault's folder scaffold
+(`streams/`, `decisions/`, `handoff/`, `daily/`, `maps/`, `templates/`) inside an
+**existing** vault. It is dry-run by default and changes nothing until asked. Its
+limits are the same boundary this file teaches: it refuses unless the vault lives
+**outside** any repo, it never creates the vault itself, never writes
+`.obsidian/`, never enables a plugin, and never reads or writes a note body. It
+only makes empty folders — the notes, decisions, and handoff cards are always
+authored by the operator, never generated. Verifying afterward with the
+read-only check is the recommended habit.
+
 ## Related project files
 
 - `../docs/OBSIDIAN_COCKPIT.md` — the public-safe overview and core-plugin layout.

@@ -94,6 +94,29 @@ None of these require network access, and none of them belong in a public repo.
 6. **The repo and the ledger win.** When the cockpit disagrees with committed or
    ledgered truth, trust the repo and the ledger, and fix the note.
 
+## Creating the folders
+
+`cockpit init` is an optional helper that creates the vault's folder scaffold
+(added in `v0.3.3-alpha.1`). It is **dry-run by default** and creates folders
+only:
+
+```
+python scripts/kungfu.py cockpit init            # dry-run: shows what it WOULD-CREATE
+python scripts/kungfu.py cockpit init --apply     # create the missing folders
+```
+
+It needs the same local `cockpit.local.json` as the doctor and reuses the
+doctor's safety gate: it refuses to write unless the configured vault lives
+**outside** this repo and any other git work tree. It creates the folders listed
+under `folders` (`streams/`, `decisions/`, `handoff/`, `daily/`, `maps/`,
+`templates/`) inside an **existing** vault, and nothing else.
+
+What it will **not** do: it never creates or edits `cockpit.local.json`, never
+creates the vault root (a missing vault is an error — make the vault first),
+never touches `.obsidian/`, never enables a plugin, and never reads or writes a
+note body. It is idempotent — an existing folder is reported `EXISTS` and left
+alone. After `--apply`, run `cockpit doctor` to verify the setup.
+
 ## Checking your setup
 
 `cockpit doctor` is a **read-only** safety check (added in `v0.3.2-alpha.1`). It
