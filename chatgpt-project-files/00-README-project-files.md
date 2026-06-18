@@ -54,9 +54,12 @@ Together they teach the LLM project to:
 - `12-obsidian-cockpit.md` — optional private **cockpit layer** doctrine (vault
   privacy, handoff-card rule, public/private boundary, concept-risk review,
   placeholder-only note skeletons). Pairs with `../docs/OBSIDIAN_COCKPIT.md`.
+- `13-cinematic-web-builds.md` — optional routing doctrine for **cinematic /
+  interactive web builds** (3D/WebGL, motion, scroll, shaders): lane the
+  spectacle, route by capability, perf-and-accessibility gates, asset rights.
 - `PROJECT-INSTRUCTIONS.md` — copy-ready block for your LLM project's custom instructions.
 
-> Present today: `00`–`12` plus `PROJECT-INSTRUCTIONS.md` — all present.
+> Present today: `00`–`13` plus `PROJECT-INSTRUCTIONS.md` — all present.
 
 ## Upload order
 
@@ -80,6 +83,7 @@ Upload the spine first, then core, then advanced only when the work needs it.
 - `10-learn-and-update-loop.md`
 - `11-command-templates.md`
 - `12-obsidian-cockpit.md` (only while running the optional cockpit layer)
+- `13-cinematic-web-builds.md` (only while doing cinematic / interactive web work)
 
 > Tip: `PROJECT-INSTRUCTIONS.md` is **pasted into your project's custom
 > instructions**, not uploaded as a file.

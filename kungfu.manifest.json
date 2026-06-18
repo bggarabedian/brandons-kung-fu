@@ -34,7 +34,8 @@
           {"name": "09-codex-and-agent-tooling.md", "description": "Optional Codex CLI / multi-agent tooling guidance and install policy."},
           {"name": "10-learn-and-update-loop.md", "description": "The learn loop, tool-freshness checks, and memory destinations."},
           {"name": "11-command-templates.md", "description": "Generic /standup, /standdown, /learn, /dream command templates, the no-hardcoded-path rule, and a smoke-test checklist."},
-          {"name": "12-obsidian-cockpit.md", "description": "Optional private cockpit-layer doctrine: vault privacy, handoff cards, and the public/private boundary."}
+          {"name": "12-obsidian-cockpit.md", "description": "Optional private cockpit-layer doctrine: vault privacy, handoff cards, and the public/private boundary."},
+          {"name": "13-cinematic-web-builds.md", "description": "Optional routing doctrine for cinematic / interactive web builds (3D/WebGL, motion, scroll, shaders): lane, route by capability, perf and accessibility gates, asset rights."}
         ]
       }
     ],
