@@ -3,6 +3,28 @@
 All notable changes to Brandon's Kung Fu. This project is **pre-1.0**: the public
 install/update contract is not yet stable, and no GitHub release is tagged yet.
 
+## Project file 13: cinematic & interactive web builds — pending PR (unreleased)
+
+A new optional / advanced ChatGPT project file —
+`chatgpt-project-files/13-cinematic-web-builds.md` — adds conductor doctrine for
+**cinematic and interactive web work** (3D/WebGL, motion, scroll, shaders).
+Doctrine-only; no code, no tooling, no VERSION change.
+
+- Add `13-cinematic-web-builds.md`: define what counts as a cinematic / interactive
+  build, lane the spectacle conservatively (heavy deps, bundle/build config,
+  perf-critical paths, and asset rights are Red), route by **capability axis**
+  rather than an invented `/slash` name (the kit catalog has no cinematic cluster),
+  the extra task-box fields (device/perf budget, motion behavior, fallback, visual
+  acceptance), verify with **eyes and numbers** not vibes, treat performance as a
+  gate, keep accessibility / motion safety non-negotiable, vet assets and
+  dependencies, and scope-box the spectacle.
+- Register it: list it in `chatgpt-project-files/00-README-project-files.md` (file
+  list, present-today `00`–`13`, and the optional upload order) and add it to the
+  **Optional / advanced** group of `kungfu.manifest.json` `chatgpt.upload_order`,
+  so `setup-chatgpt` packages it and `doctor` verifies it.
+- No VERSION bump and no `kungfu.manifest.json` `version` change (still `0.3.0`);
+  only a project-file entry was added.
+
 ## v0.3.3-alpha.1 — pending PR (unreleased)
 
 The second **Cockpit Bridge** slice: `cockpit init`, the first vault-*write*
