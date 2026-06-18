@@ -3,7 +3,7 @@
 All notable changes to Brandon's Kung Fu. This project is **pre-1.0**: the public
 install/update contract is not yet stable, and no GitHub release is tagged yet.
 
-## v0.3.2-alpha.1 — pending PR (unreleased)
+## v0.3.2-alpha.1 — merged via PR #14 (no version bump)
 
 The first **Cockpit Bridge** slice: a read-only `cockpit doctor` check that
 verifies a private vault is wired safely, without ever reading a note body. The

@@ -9,6 +9,9 @@ cockpit.local.json
 !cockpit.local.example.json
 .env
 
+# Private project-source draft — keep out of this public repo (never track):
+chatgpt-project-files/13-cinematic-web-build-pipeline.md
+
 # Python
 .venv/
 venv/
